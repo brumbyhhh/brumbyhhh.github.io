@@ -210,8 +210,52 @@ class TrieNode &#123;
   boolean isEnd;
 
   public TrieNode() &#123;
-      children = new HashMap&lt;&gt;();
-      isEnd = false;
+      this.children = new HashMap&lt;&gt;();
+      this.isEnd = false;
+  &#125;
+&#125;
+
+class Trie &#123;
+  TrieNode root;
+
+  public Trie() &#123;
+      this.root = new TriredNode();
+  &#125;
+
+  public void insert(String word) &#123;
+      TrieNode node = this.root;
+      for (char c : word.toCharArray()) &#123;
+          if (!node.children.containsKey(c)) &#123;
+              node.children.put(c, new TrieNode());
+          &#125;
+          node = node.children.get(c);
+      &#125;
+      node.isEnd = true;
+  &#125;
+
+  public void search(String word) &#123;
+      TrieNode node = this.root;
+      for (char c : word.toCharArray()) &#123;
+          if (!node.children.containsKey(c)) &#123;
+              return false;
+          &#125;
+          node = node.children.get(c);
+      &#125;
+      return node.isEnd;
+  &#125;
+&#125;
+public class Main &#123;
+  public static void main(String[] args) &#123;
+      Trie trie = new Trie();
+      trie.insert(&quot;apple&quot;);
+      trie.insert(&quot;app&quot;);
+      trie.insert(&quot;banana&quot;);
+
+      System.out.println(trie.search(&quot;apple&quot;));   // true
+      System.out.println(trie.search(&quot;app&quot;));     // true
+      System.out.println(trie.search(&quot;banana&quot;));  // true
+      System.out.println(trie.search(&quot;orange&quot;));  // false
+      System.out.println(trie.search(&quot;apples&quot;));  // false
   &#125;
 &#125;
 </code></pre>
