@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>RESP 协议</title>
-    <url>/2023/09/07/RESP-%E5%8D%8F%E8%AE%AE/</url>
-    <content><![CDATA[<p>测试</p>
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Raft 算法</title>
-    <url>/2023/09/07/Raft-%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<p>raft 算法</p>
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>分布式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>敏感词过滤如何实现</title>
     <url>/2023/09/08/%E6%95%8F%E6%84%9F%E8%AF%8D%E8%BF%87%E6%BB%A4%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h1 id="实现敏感词过滤的步骤"><a href="#实现敏感词过滤的步骤" class="headerlink" title="实现敏感词过滤的步骤"></a>实现敏感词过滤的步骤</h1><ul>
@@ -62,7 +38,7 @@
 <li><code>children</code>：一个映射或数组，用于存储子节点，其中键或索引对应于字符串或字符集</li>
 <li><code>isEnd</code>：一个布尔值，指示当前节点是否代表一个字符串的结尾。</li>
 </ul>
-<pre><code class="golang">// TrieNode 表示前缀树的节点
+<pre><code class="go">// TrieNode 表示前缀树的节点
 type TrieNode struct &#123;
     children map[rune]*TrieNode
     isEnd bool
@@ -100,6 +76,30 @@ func NewTrie() *Trie &#123;
       </categories>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Raft 算法</title>
+    <url>/2023/09/07/Raft-%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>raft 算法</p>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RESP 协议</title>
+    <url>/2023/09/07/RESP-%E5%8D%8F%E8%AE%AE/</url>
+    <content><![CDATA[<p>测试</p>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
       </tags>
   </entry>
   <entry>
