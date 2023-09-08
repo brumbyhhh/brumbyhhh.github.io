@@ -119,13 +119,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    2.4k
+                    5.5k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    2 mins.
+                    5 mins.
                 </span>
                 
                 
@@ -216,14 +216,137 @@ func NewTrie() *Trie &#123;
 </li>
 <li><p><strong>插入操作</strong></p>
 <ul>
-<li>测试</li>
+<li>实现插入操作以将字符串添加到前缀树中<ul>
+<li>从根节点开始，遍历要插入的字符串的字符。</li>
+<li>对于每个字符，检查它是否已经作为子节点的存在，如果不存在，则创建一个新节点并将其添加到当前节点的子节点映射或数组中。</li>
+<li>移动到下一个节点，并继续这个过程，直到插入完整字符串。</li>
+<li>在插入的最后一个字符节点上设置 <code>isEnd</code> 标志，表示一个完整的字符串已经插入。</li>
 </ul>
-<pre><code class="java">public class TrieNode &#123;
-    private age int
+</li>
+</ul>
+<pre><code class="golang">// 向前缀树中插入一个字符串
+func (t *Trie) Insert(word string) &#123;
+    node := t.root
+    for _, char := range word &#123;
+        if node.children[char] == nil &#123;
+            node.children[char] = &amp;TrieNode&#123;
+                children: make(map[rune]*TrieNode),
+                isEnd: false,
+            &#125;
+        &#125;
+        node = node.children[char]
+    &#125;
+    node.isEnd = true
 &#125;
 </code></pre>
 </li>
+<li><p><strong>搜索操作</strong></p>
+<ul>
+<li>实现搜索操作以查找前缀或整个字符串<ul>
+<li>从根节点开始，遍历要搜索的字符串的字符。</li>
+<li>对于每个字符，检查它是否作为子节点存在。如果存在，继续向下移动。</li>
+<li>如果在搜索的过程中遇到任何字符节点不存在，或者搜索完成后发现当前节点的 <code>isEnd</code> 标志未设置，那么表示该字符串不存在于前缀树中。</li>
 </ul>
+</li>
+</ul>
+<pre><code class="golang">// 搜索前缀树以检查字符串是否存在
+func (t *Trie) Search(word string) bool &#123;
+    node := t.root
+    for _, char := range word &#123;
+        if node.children[char] == nil &#123;
+            return false
+        &#125;
+        node = node.children[char]
+    &#125;
+    return node.isEnd
+&#125;
+</code></pre>
+</li>
+<li><p><strong>完整实现</strong></p>
+<ul>
+<li>golang 实现</li>
+</ul>
+<pre><code class="golang">package main
+import &quot;fmt&quot;
+
+// TrieNode 表示前缀树的节点
+type TrieNode struct &#123;
+    children map[rune]*TrieNode
+    isEnd    bool
+&#125;
+
+// Trie 表示前缀树
+type Trie struct &#123;
+    root *TrieNode
+&#125;
+
+// NewTrie 创建一个新的前缀树
+func NewTrie() *Trie &#123;
+    return &amp;Trie&#123;
+        root: &amp;TrieNode&#123;
+            children: make(map[rune]*TrieNode),
+            isEnd:    false,
+        &#125;,
+    &#125;
+&#125;
+
+// Insert 向前缀树中插入一个字符串
+func (t *Trie) Insert(word string) &#123;
+    node := t.root
+    for _, char := range word &#123;
+        if node.children[char] == nil &#123;
+            node.children[char] = &amp;TrieNode&#123;
+                children: make(map[rune]*TrieNode),
+                isEnd:    false,
+            &#125;
+        &#125;
+        node = node.children[char]
+    &#125;
+    node.isEnd = true
+&#125;
+
+// Search 搜索前缀树以检查字符串是否存在
+func (t *Trie) Search(word string) bool &#123;
+    node := t.root
+    for _, char := range word &#123;
+        if node.children[char] == nil &#123;
+            return false
+        &#125;
+        node = node.children[char]
+    &#125;
+    return node.isEnd
+&#125;
+
+func main() &#123;
+    trie := NewTrie()
+    trie.Insert(&quot;apple&quot;)
+    trie.Insert(&quot;app&quot;)
+    trie.Insert(&quot;banana&quot;)
+
+    fmt.Println(trie.Search(&quot;apple&quot;))   // true
+    fmt.Println(trie.Search(&quot;app&quot;))     // true
+    fmt.Println(trie.Search(&quot;banana&quot;))  // true
+    fmt.Println(trie.Search(&quot;orange&quot;))  // false
+    fmt.Println(trie.Search(&quot;apples&quot;))  // false
+&#125;
+</code></pre>
+</li>
+<li><p>Java 实现</p>
+</li>
+</ul>
+<pre><code class="java">import java.util.HashMap;
+import java.util.Map;
+
+class TrieNode &#123;
+  Map&lt;Character, TrieNode&gt; children;
+  boolean isEnd;
+
+  public TrieNode() &#123;
+      children = new HashMap&lt;&gt;();
+      isEnd = false;
+  &#125;
+&#125;
+</code></pre>
 </li>
 </ul>
 
