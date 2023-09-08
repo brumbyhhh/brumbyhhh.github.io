@@ -10,8 +10,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="测试
-"> 
+    <meta name="description" content="实现敏感词过滤的步骤
+构建敏感词汇列表
+首先你需要创建一个敏感词汇的列表或词库，表示不当内容。
+
+
+选择过滤方法
+关键词匹配：使用字符串匹配算法，检查文本中是否包含敏感词汇，这是最简单的方法，但不适,"> 
     <meta name="author" content="Painter"> 
     <link rel="alternative" href="atom.xml" title="画师的世界" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -117,13 +122,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    10
+                    2.4k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    2 mins.
                 </span>
                 
                 
@@ -157,7 +162,53 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>测试</p>
+            <h1 id="实现敏感词过滤的步骤"><a href="#实现敏感词过滤的步骤" class="headerlink" title="实现敏感词过滤的步骤"></a>实现敏感词过滤的步骤</h1><ol>
+<li><strong>构建敏感词汇列表</strong><ul>
+<li>首先你需要创建一个敏感词汇的列表或词库，表示不当内容。</li>
+</ul>
+</li>
+<li><strong>选择过滤方法</strong><ul>
+<li><strong>关键词匹配</strong>：使用字符串匹配算法，检查文本中是否包含敏感词汇，这是最简单的方法，但不适用于复杂的敏感词汇。</li>
+<li><strong>正则表达式</strong>：使用正则表达式来匹配敏感词汇，这允许更灵活的匹配模式。</li>
+<li><strong>Tire 树</strong>：构建一个 Trie 树，将敏感词汇插入树中，并通过树的遍历来检查文本。</li>
+<li><strong>机器学习</strong>：使用自然语言 NPL 和机器学习技术训练模型，以检测和过滤不当的内容。</li>
+</ul>
+</li>
+<li><strong>过滤文本</strong><ul>
+<li>将要过滤的文本传递给你选择的过滤方法，检查是否包含敏感词汇。</li>
+</ul>
+</li>
+<li><strong>替换或删除敏感词汇</strong><ul>
+<li>如果文本中包含敏感词汇，你可以选择替换敏感词汇，将其标记为占位符或完全删除，具体取决于你的需求。</li>
+</ul>
+</li>
+<li><strong>性能优化</strong><ul>
+<li>如果对于大量文本的处理，你需要考虑性能，可以使用一些技巧提高过滤速度，例如缓存已处理的文本、使用多线程或并行处理等。</li>
+</ul>
+</li>
+<li><strong>维护词库</strong><ul>
+<li>定期更新敏感词汇列表以反映新的敏感内容。可以手动更新，也可以自动从可信来源获取。</li>
+</ul>
+</li>
+</ol>
+<h1 id="过滤的方法"><a href="#过滤的方法" class="headerlink" title="过滤的方法"></a>过滤的方法</h1><p>选择过滤的方法，是实现敏感词过滤的关键，如何实现这个过滤方法呢？这篇文章主要使用前缀树来实现敏感词过滤的功能。我先来介绍一下什么是前缀树？</p>
+<h2 id="前缀树"><a href="#前缀树" class="headerlink" title="前缀树"></a>前缀树</h2><ul>
+<li><strong>什么是前缀树？</strong><ul>
+<li>通常是用于存储和检索字符串集合中的字符串，它是一种用于快速查找和匹配前缀的数据结构，因此称为前缀树。</li>
+<li><strong>前缀树的特点</strong><ol>
+<li><strong>树状结构</strong>：前缀树是一个树，其中每个节点代表一个字符，从根节点开始到叶子节点的路径组合在一起形成一个字符串。根节点不包括字符，每个子节点表示一个字符。</li>
+<li><strong>前缀匹配</strong>：前缀树主要用途是查找具有特定前缀的字符串。通过从根节点开始，沿着树的路径移动，可以逐个字符地匹配输入的前缀，直到找到相应的节点或者确定前缀不存在。</li>
+<li><strong>高效的查找</strong>：因为前缀树将相同的前缀的字符串共享相同的前缀路径，因此它非常适合存储大量的字符串，并且可以在常数时间内查找、插入和删除字符串。</li>
+<li><strong>空间消耗</strong>：前缀树的主要缺点是它可能占用大量的内存，特别是当字符串集合中的字符串共享大量前缀时，为了减少内存占用，可以使用压缩前缀树（如压缩字典或基数树）</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>如何实现前缀树？</strong><ul>
+<li>定义节点结构<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TrieNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    children <span class="keyword">map</span>[<span class="type">rune</span>]*TrieNode</span><br><span class="line">    isEnd <span class="type">bool</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -214,6 +265,13 @@
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%95%8F%E6%84%9F%E8%AF%8D%E8%BF%87%E6%BB%A4%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.</span> <span class="toc-text">实现敏感词过滤的步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">过滤的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BC%80%E6%A0%91"><span class="toc-number">2.1.</span> <span class="toc-text">前缀树</span></a></li></ol></li></ol>
+                </div>
+            </div>
             
             
         </div>

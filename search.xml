@@ -1,107 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>敏感词过滤如何实现</title>
-      <link href="/2023/09/08/%E6%95%8F%E6%84%9F%E8%AF%8D%E8%BF%87%E6%BB%A4%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0/"/>
-      <url>/2023/09/08/%E6%95%8F%E6%84%9F%E8%AF%8D%E8%BF%87%E6%BB%A4%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0/</url>
-      
-        <content type="html"><![CDATA[<p>测试</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>Raft 算法</title>
+    <url>/2023/09/07/Raft-%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>raft 算法</p>
+]]></content>
       <categories>
-          
-          <category> 后端 </category>
-          
+        <category>后端</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Raft 算法</title>
-      <link href="/2023/09/07/Raft-%E7%AE%97%E6%B3%95/"/>
-      <url>/2023/09/07/Raft-%E7%AE%97%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<p>raft 算法</p>]]></content>
-      
-      
+      <tags>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RESP 协议</title>
+    <url>/2023/09/07/RESP-%E5%8D%8F%E8%AE%AE/</url>
+    <content><![CDATA[<p>测试</p>
+]]></content>
       <categories>
-          
-          <category> 后端 </category>
-          
+        <category>后端</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 分布式 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>RESP 协议</title>
-      <link href="/2023/09/07/RESP-%E5%8D%8F%E8%AE%AE/"/>
-      <url>/2023/09/07/RESP-%E5%8D%8F%E8%AE%AE/</url>
-      
-        <content type="html"><![CDATA[<p>测试</p>]]></content>
-      
-      
+      <tags>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深入理解分布式锁</title>
+    <url>/2023/09/07/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
       <categories>
-          
-          <category> 后端 </category>
-          
+        <category>后端</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Redis </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>深入理解分布式锁</title>
-      <link href="/2023/09/07/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/"/>
-      <url>/2023/09/07/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
+      <tags>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>敏感词过滤如何实现</title>
+    <url>/2023/09/08/%E6%95%8F%E6%84%9F%E8%AF%8D%E8%BF%87%E6%BB%A4%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h1 id="实现敏感词过滤的步骤"><a href="#实现敏感词过滤的步骤" class="headerlink" title="实现敏感词过滤的步骤"></a>实现敏感词过滤的步骤</h1><ol>
+<li><strong>构建敏感词汇列表</strong><ul>
+<li>首先你需要创建一个敏感词汇的列表或词库，表示不当内容。</li>
+</ul>
+</li>
+<li><strong>选择过滤方法</strong><ul>
+<li><strong>关键词匹配</strong>：使用字符串匹配算法，检查文本中是否包含敏感词汇，这是最简单的方法，但不适用于复杂的敏感词汇。</li>
+<li><strong>正则表达式</strong>：使用正则表达式来匹配敏感词汇，这允许更灵活的匹配模式。</li>
+<li><strong>Tire 树</strong>：构建一个 Trie 树，将敏感词汇插入树中，并通过树的遍历来检查文本。</li>
+<li><strong>机器学习</strong>：使用自然语言 NPL 和机器学习技术训练模型，以检测和过滤不当的内容。</li>
+</ul>
+</li>
+<li><strong>过滤文本</strong><ul>
+<li>将要过滤的文本传递给你选择的过滤方法，检查是否包含敏感词汇。</li>
+</ul>
+</li>
+<li><strong>替换或删除敏感词汇</strong><ul>
+<li>如果文本中包含敏感词汇，你可以选择替换敏感词汇，将其标记为占位符或完全删除，具体取决于你的需求。</li>
+</ul>
+</li>
+<li><strong>性能优化</strong><ul>
+<li>如果对于大量文本的处理，你需要考虑性能，可以使用一些技巧提高过滤速度，例如缓存已处理的文本、使用多线程或并行处理等。</li>
+</ul>
+</li>
+<li><strong>维护词库</strong><ul>
+<li>定期更新敏感词汇列表以反映新的敏感内容。可以手动更新，也可以自动从可信来源获取。</li>
+</ul>
+</li>
+</ol>
+<h1 id="过滤的方法"><a href="#过滤的方法" class="headerlink" title="过滤的方法"></a>过滤的方法</h1><p>选择过滤的方法，是实现敏感词过滤的关键，如何实现这个过滤方法呢？这篇文章主要使用前缀树来实现敏感词过滤的功能。我先来介绍一下什么是前缀树？</p>
+<h2 id="前缀树"><a href="#前缀树" class="headerlink" title="前缀树"></a>前缀树</h2><ul>
+<li><strong>什么是前缀树？</strong><ul>
+<li>通常是用于存储和检索字符串集合中的字符串，它是一种用于快速查找和匹配前缀的数据结构，因此称为前缀树。</li>
+<li><strong>前缀树的特点</strong><ol>
+<li><strong>树状结构</strong>：前缀树是一个树，其中每个节点代表一个字符，从根节点开始到叶子节点的路径组合在一起形成一个字符串。根节点不包括字符，每个子节点表示一个字符。</li>
+<li><strong>前缀匹配</strong>：前缀树主要用途是查找具有特定前缀的字符串。通过从根节点开始，沿着树的路径移动，可以逐个字符地匹配输入的前缀，直到找到相应的节点或者确定前缀不存在。</li>
+<li><strong>高效的查找</strong>：因为前缀树将相同的前缀的字符串共享相同的前缀路径，因此它非常适合存储大量的字符串，并且可以在常数时间内查找、插入和删除字符串。</li>
+<li><strong>空间消耗</strong>：前缀树的主要缺点是它可能占用大量的内存，特别是当字符串集合中的字符串共享大量前缀时，为了减少内存占用，可以使用压缩前缀树（如压缩字典或基数树）</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>如何实现前缀树？</strong><ul>
+<li>定义节点结构<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> TrieNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    children <span class="keyword">map</span>[<span class="type">rune</span>]*TrieNode</span><br><span class="line">    isEnd <span class="type">bool</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+]]></content>
       <categories>
-          
-          <category> 后端 </category>
-          
+        <category>后端</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 分布式 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
 </search>
