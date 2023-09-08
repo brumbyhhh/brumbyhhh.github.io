@@ -10,7 +10,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    
+    <meta name="description" content="创建 monorepo 项目，发布组件的步骤
+先创建一个项目mkdir wanwu-ui-project
+cd wanwu-ui-project
+vim pnpm.workspace.yml # 需,"> 
     <meta name="author" content="Painter"> 
     <link rel="alternative" href="atom.xml" title="画师的世界" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -116,7 +119,7 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    0
+                    1.4k
                 </span>
                 
                 
@@ -156,7 +159,49 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            
+            <h1 id="创建-monorepo-项目，发布组件的步骤"><a href="#创建-monorepo-项目，发布组件的步骤" class="headerlink" title="创建 monorepo 项目，发布组件的步骤"></a>创建 monorepo 项目，发布组件的步骤</h1><ul>
+<li>先创建一个项目<pre><code class="bash">mkdir wanwu-ui-project
+cd wanwu-ui-project
+vim pnpm.workspace.yml # 需要创建 pnpm.workspace.yml 才能使用 pnpm init -w 对项目进行初始化
+pnpm init -w
+mkdir packages # 存放子项目的地方
+cd packages
+mkdir wanwu-ui # 创建存放封装 ui 组件的项目
+cd wanwu-ui
+pnpm init
+npx tsc --init # 创建 typescript 配置文件
+pnpm add --save-dev typescript @types/node # 安装 typescript 相关的依赖
+</code></pre>
+</li>
+<li>为了能用 ts 编写组件，所以需要更改一些配置<ol>
+<li>首先在 <code>tsconfig.json</code> 中指定 ts 文件编译之后的输出目录</li>
+</ol>
+<pre><code class="json">&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;outDir&quot;: &quot;./dist&quot;, // 指定编译后的输出目录
+    &quot;module&quot;: &quot;esnext&quot; // 使用 ES 模块规范
+  &#125;
+&#125;
+</code></pre>
+<ol start="2">
+<li>这一步是在你编写完组件后才执行，使用 <code>npx tsc</code> 编译 ts 代码</li>
+<li>创建 npm 包，需要对子项目 wanwu-ui 目录下的 <code>package.json</code> 进行一些修改</li>
+</ol>
+<pre><code class="json">&#123;
+  &quot;name&quot;: &quot;wanwu-ui&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;main&quot;: &quot;dist/index.js&quot;, // 主入口文件
+  &quot;module&quot;: &quot;dist/index.js&quot;, // ES 模块入口文件
+  &quot;description&quot;: &quot;... some description&quot;
+&#125;
+</code></pre>
+</li>
+<li>发布到 npm<ul>
+<li><code>pnpm publish</code></li>
+</ul>
+</li>
+</ul>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
@@ -212,6 +257,13 @@
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-monorepo-%E9%A1%B9%E7%9B%AE%EF%BC%8C%E5%8F%91%E5%B8%83%E7%BB%84%E4%BB%B6%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.</span> <span class="toc-text">创建 monorepo 项目，发布组件的步骤</span></a></li></ol>
+                </div>
+            </div>
             
             
         </div>
