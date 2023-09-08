@@ -119,13 +119,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    4k
+                    2.3k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    4 mins.
+                    2 mins.
                 </span>
                 
                 
@@ -194,7 +194,25 @@
 <li><code>children</code>：一个映射或数组，用于存储子节点，其中键或索引对应于字符串或字符集</li>
 <li><code>isEnd</code>：一个布尔值，指示当前节点是否代表一个字符串的结尾。</li>
 </ul>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TrieNode 表示前缀树的节点</span></span><br><span class="line"><span class="keyword">type</span> TrieNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    children <span class="keyword">map</span>[<span class="type">rune</span>]*TrieNode</span><br><span class="line">    isEnd <span class="type">bool</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Trie 表示前缀树</span></span><br><span class="line"><span class="keyword">type</span> Trie <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// NewTrie 创建一个新的前缀树</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewTrie</span><span class="params">()</span></span> *Trie &#123;</span><br><span class="line">    <span class="keyword">return</span> &amp;Trie &#123;</span><br><span class="line">        root: &amp;TrieNode &#123;</span><br><span class="line">            children: <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">rune</span>]*TrieNode),</span><br><span class="line">            isEnd: <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="golang">// TrieNode 表示前缀树的节点
+type TrieNode struct &#123;
+    children map[rune]*TrieNode
+    isEnd bool
+&#125;
+// Trie 表示前缀树
+type Trie struct &#123;
+
+&#125;
+// NewTrie 创建一个新的前缀树
+func NewTrie() *Trie &#123;
+    return &amp;Trie &#123;
+        root: &amp;TrieNode &#123;
+            children: make(map[rune]*TrieNode),
+            isEnd: false
+        &#125;,
+    &#125;
+&#125;
+</code></pre>
 </li>
 <li><p><strong>插入操作</strong></p>
 <ul>
