@@ -194,7 +194,7 @@
 <li><code>children</code>：一个映射或数组，用于存储子节点，其中键或索引对应于字符串或字符集</li>
 <li><code>isEnd</code>：一个布尔值，指示当前节点是否代表一个字符串的结尾。</li>
 </ul>
-<pre><code class="go">// TrieNode 表示前缀树的节点
+<pre><code class="golang">// TrieNode 表示前缀树的节点
 type TrieNode struct &#123;
     children map[rune]*TrieNode
     isEnd bool
