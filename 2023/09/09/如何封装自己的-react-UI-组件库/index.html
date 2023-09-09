@@ -119,7 +119,7 @@ vim pnpm.workspace.yml # 需,">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    1.4k
+                    1.5k
                 </span>
                 
                 
@@ -171,6 +171,7 @@ cd wanwu-ui
 pnpm init
 npx tsc --init # 创建 typescript 配置文件
 pnpm add --save-dev typescript @types/node # 安装 typescript 相关的依赖
+pnpm add react react-dom
 </code></pre>
 </li>
 <li>为了能用 ts 编写组件，所以需要更改一些配置<ol>
@@ -179,7 +180,9 @@ pnpm add --save-dev typescript @types/node # 安装 typescript 相关的依赖
 <pre><code class="json">&#123;
   &quot;compilerOptions&quot;: &#123;
     &quot;outDir&quot;: &quot;./dist&quot;, // 指定编译后的输出目录
-    &quot;module&quot;: &quot;esnext&quot; // 使用 ES 模块规范
+    &quot;module&quot;: &quot;esnext&quot;, // 使用 ES 模块规范
+    &quot;moduleResolution&quot;: &quot;node&quot;,
+    &quot;jsx&quot;: &quot;react&quot;
   &#125;
 &#125;
 </code></pre>
@@ -473,7 +476,7 @@ pnpm add --save-dev typescript @types/node # 安装 typescript 相关的依赖
     var typedTextEl = $('.typed-text');
     if (typedTextEl && typedTextEl.length > 0) {
       var typed = new Typed('.typed-text', {
-        strings: ['且夫天地为炉兮，造化为工！阴阳为炭兮，万物为铜', 'Think like an artist, develop like an artisan'],
+        strings: ['且夫天地为炉兮，造化为工！阴阳为炭兮，万物为铜', '年来鞍马困尘埃，赖有青山豁我怀'],
         typeSpeed: 90,
         loop: true,
         loopCount: Infinity,
