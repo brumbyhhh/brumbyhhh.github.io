@@ -25,76 +25,8 @@
       </tags>
   </entry>
   <entry>
-    <title>monorepo 架构和 turborepo 架构</title>
-    <url>/2023/09/08/monorepo-%E6%9E%B6%E6%9E%84%E5%92%8C-turborepo-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>如何封装自己的 react UI 组件库（一）</title>
-    <url>/2023/09/09/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84-react-UI-%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="创建-monorepo-项目，发布组件的步骤"><a href="#创建-monorepo-项目，发布组件的步骤" class="headerlink" title="创建 monorepo 项目，发布组件的步骤"></a>创建 monorepo 项目，发布组件的步骤</h1><ul>
-<li>先创建一个项目<pre><code class="bash">mkdir wanwu-ui-project
-cd wanwu-ui-project
-vim pnpm.workspace.yml # 需要创建 pnpm.workspace.yml 才能使用 pnpm init -w 对项目进行初始化
-pnpm init -w
-mkdir packages # 存放子项目的地方
-cd packages
-mkdir wanwu-ui # 创建存放封装 ui 组件的项目
-cd wanwu-ui
-pnpm init
-npx tsc --init # 创建 typescript 配置文件
-pnpm add --save-dev typescript @types/node # 安装 typescript 相关的依赖
-pnpm add react react-dom
-</code></pre>
-</li>
-<li>为了能用 ts 编写组件，所以需要更改一些配置<ol>
-<li>首先在 <code>tsconfig.json</code> 中指定 ts 文件编译之后的输出目录</li>
-</ol>
-<pre><code class="json">&#123;
-  &quot;compilerOptions&quot;: &#123;
-    &quot;outDir&quot;: &quot;./dist&quot;, // 指定编译后的输出目录
-    &quot;module&quot;: &quot;esnext&quot;, // 使用 ES 模块规范
-    &quot;moduleResolution&quot;: &quot;node&quot;,
-    &quot;jsx&quot;: &quot;react&quot;,
-
-    // 下面两个配置是为了确保模块导入的兼容性，通常适用于 CSS 模块化
-    &quot;esModuleInterop&quot;: true,
-    &quot;allowSyntheticDefaultImports&quot;: true,
-  &#125;,
-
-  &quot;include&quot;: [&quot;src/**/*.ts&quot;, &quot;src/**/*.tsx&quot;, &quot;src/**/*.scss&quot;],
-  &quot;exclude&quot;: [&quot;node_modules&quot;]
-&#125;
-</code></pre>
-<ol start="2">
-<li>这一步是在你编写完组件后才执行，使用 <code>npx tsc</code> 编译 ts 代码</li>
-<li>创建 npm 包，需要对子项目 wanwu-ui 目录下的 <code>package.json</code> 进行一些修改</li>
-</ol>
-<pre><code class="json">&#123;
-  &quot;name&quot;: &quot;wanwu-ui&quot;,
-  &quot;version&quot;: &quot;1.0.0&quot;,
-  &quot;main&quot;: &quot;dist/index.js&quot;, // 主入口文件
-  &quot;module&quot;: &quot;dist/index.js&quot;, // ES 模块入口文件
-  &quot;description&quot;: &quot;... some description&quot;
-&#125;
-</code></pre>
-</li>
-<li>发布到 npm<ul>
-<li><code>pnpm publish</code></li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何封装自己的 react UI 组件库（二）</title>
-    <url>/2023/09/11/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84-react-UI-%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <title>如何封装自己的 react UI 组件库（Button）</title>
+    <url>/2023/09/11/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84-react-UI-%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%88Button%EF%BC%89/</url>
     <content><![CDATA[<h1 id="Button-按钮的实现"><a href="#Button-按钮的实现" class="headerlink" title="Button 按钮的实现"></a>Button 按钮的实现</h1><ul>
 <li><p>实现思路很简单，就是将 html 的 Button 加上一些 css 样式，并让使用者可以传入 Button 的类型，例如 ghost 类型。</p>
 <ul>
@@ -207,6 +139,74 @@ export default App;
       <tags>
         <tag>css</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>如何封装自己的 react UI 组件库（搭建环境）</title>
+    <url>/2023/09/09/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84-react-UI-%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%88%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="创建-monorepo-项目，发布组件的步骤"><a href="#创建-monorepo-项目，发布组件的步骤" class="headerlink" title="创建 monorepo 项目，发布组件的步骤"></a>创建 monorepo 项目，发布组件的步骤</h1><ul>
+<li>先创建一个项目<pre><code class="bash">mkdir wanwu-ui-project
+cd wanwu-ui-project
+vim pnpm.workspace.yml # 需要创建 pnpm.workspace.yml 才能使用 pnpm init -w 对项目进行初始化
+pnpm init -w
+mkdir packages # 存放子项目的地方
+cd packages
+mkdir wanwu-ui # 创建存放封装 ui 组件的项目
+cd wanwu-ui
+pnpm init
+npx tsc --init # 创建 typescript 配置文件
+pnpm add --save-dev typescript @types/node # 安装 typescript 相关的依赖
+pnpm add react react-dom
+</code></pre>
+</li>
+<li>为了能用 ts 编写组件，所以需要更改一些配置<ol>
+<li>首先在 <code>tsconfig.json</code> 中指定 ts 文件编译之后的输出目录</li>
+</ol>
+<pre><code class="json">&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;outDir&quot;: &quot;./dist&quot;, // 指定编译后的输出目录
+    &quot;module&quot;: &quot;esnext&quot;, // 使用 ES 模块规范
+    &quot;moduleResolution&quot;: &quot;node&quot;,
+    &quot;jsx&quot;: &quot;react&quot;,
+
+    // 下面两个配置是为了确保模块导入的兼容性，通常适用于 CSS 模块化
+    &quot;esModuleInterop&quot;: true,
+    &quot;allowSyntheticDefaultImports&quot;: true,
+  &#125;,
+
+  &quot;include&quot;: [&quot;src/**/*.ts&quot;, &quot;src/**/*.tsx&quot;, &quot;src/**/*.scss&quot;],
+  &quot;exclude&quot;: [&quot;node_modules&quot;]
+&#125;
+</code></pre>
+<ol start="2">
+<li>这一步是在你编写完组件后才执行，使用 <code>npx tsc</code> 编译 ts 代码</li>
+<li>创建 npm 包，需要对子项目 wanwu-ui 目录下的 <code>package.json</code> 进行一些修改</li>
+</ol>
+<pre><code class="json">&#123;
+  &quot;name&quot;: &quot;wanwu-ui&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;main&quot;: &quot;dist/index.js&quot;, // 主入口文件
+  &quot;module&quot;: &quot;dist/index.js&quot;, // ES 模块入口文件
+  &quot;description&quot;: &quot;... some description&quot;
+&#125;
+</code></pre>
+</li>
+<li>发布到 npm<ul>
+<li><code>pnpm publish</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>monorepo 架构和 turborepo 架构</title>
+    <url>/2023/09/08/monorepo-%E6%9E%B6%E6%9E%84%E5%92%8C-turborepo-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>深入理解分布式锁</title>
