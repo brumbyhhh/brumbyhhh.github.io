@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>如何封装自己的 react UI 组件库 - 画师的世界</title>
+    <title>如何封装自己的 react UI 组件库（一） - 画师的世界</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -77,7 +77,7 @@ vim pnpm.workspace.yml # 需,">
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://brumbyhhh.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">如何封装自己的 react UI 组件库</h3>
+        <h3 class="subtitle">如何封装自己的 react UI 组件库（一）</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -112,20 +112,20 @@ vim pnpm.workspace.yml # 需,">
                 
                 September 09, 2023
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2023/09/09/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84-react-UI-%E7%BB%84%E4%BB%B6%E5%BA%93/" title="如何封装自己的 react UI 组件库" class="">如何封装自己的 react UI 组件库</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2023/09/09/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84-react-UI-%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%88%E4%B8%80%EF%BC%89/" title="如何封装自己的 react UI 组件库（一）" class="">如何封装自己的 react UI 组件库（一）</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    1.5k
+                    1.8k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    2 mins.
                 </span>
                 
                 
@@ -182,8 +182,15 @@ pnpm add react react-dom
     &quot;outDir&quot;: &quot;./dist&quot;, // 指定编译后的输出目录
     &quot;module&quot;: &quot;esnext&quot;, // 使用 ES 模块规范
     &quot;moduleResolution&quot;: &quot;node&quot;,
-    &quot;jsx&quot;: &quot;react&quot;
-  &#125;
+    &quot;jsx&quot;: &quot;react&quot;,
+
+    // 下面两个配置是为了确保模块导入的兼容性，通常适用于 CSS 模块化
+    &quot;esModuleInterop&quot;: true,
+    &quot;allowSyntheticDefaultImports&quot;: true,
+  &#125;,
+
+  &quot;include&quot;: [&quot;src/**/*.ts&quot;, &quot;src/**/*.tsx&quot;, &quot;src/**/*.scss&quot;],
+  &quot;exclude&quot;: [&quot;node_modules&quot;]
 &#125;
 </code></pre>
 <ol start="2">
