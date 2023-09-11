@@ -13,7 +13,7 @@
     <meta name="description" content="Button 按钮的实现
 实现思路很简单，就是将 html 的 Button 加上一些 css 样式，并让使用者可以传入 Button 的类型，例如 ghost 类型。
 
-定义 Button 的一些,"> 
+Button.tsx 文件,"> 
     <meta name="author" content="Painter"> 
     <link rel="alternative" href="atom.xml" title="画师的世界" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -119,13 +119,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    939
+                    1.9k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    2 mins.
                 </span>
                 
                 
@@ -162,6 +162,8 @@
             <h1 id="Button-按钮的实现"><a href="#Button-按钮的实现" class="headerlink" title="Button 按钮的实现"></a>Button 按钮的实现</h1><ul>
 <li><p>实现思路很简单，就是将 html 的 Button 加上一些 css 样式，并让使用者可以传入 Button 的类型，例如 ghost 类型。</p>
 <ul>
+<li><p>Button.tsx 文件</p>
+<ul>
 <li>定义 Button 的一些属性</li>
 </ul>
 <pre><code class="typescript">interface ButtonProps &#123;
@@ -189,6 +191,60 @@
 
 export default Button;
 </code></pre>
+</li>
+<li><p>引入 CSS 样式</p>
+<ul>
+<li>Button.css 文件</li>
+</ul>
+<pre><code class="css">/* 默认样式 */
+.button &#123;
+  background-color: #0967cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+&#125;
+
+/* 虚线框样式 */
+.button.dashed &#123;
+  border: 1px dashed #0967cc;
+  background-color: transparent;
+  color: #007bff;
+&#125;
+
+/* 无框样式 */
+.button.outline &#123;
+  border: 1px solid #0967cc;
+  background-color: transparent;
+  color: #007bff;
+&#125;
+
+/* 幽灵样式 */
+.button.ghost &#123;
+  background-color: transparent;
+  color: #007bff;
+&#125;
+
+/* 鼠标悬停时的样式 */
+.button:hover &#123;
+  background-color: #0056b3;
+  border-color: #0056b3;
+&#125;
+
+/* 点击时的样式 */
+.button:active &#123;
+  background-color: #007bff;
+  border-color: #003d80;
+&#125;
+
+/* 获取焦点时的样式 */
+.button:focus &#123;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+&#125;
+</code></pre>
+</li>
+</ul>
 </li>
 </ul>
 
