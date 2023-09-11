@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>monorepo 架构和 turborepo 架构</title>
-    <url>/2023/09/08/monorepo-%E6%9E%B6%E6%9E%84%E5%92%8C-turborepo-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>RESP 协议</title>
     <url>/2023/09/07/RESP-%E5%8D%8F%E8%AE%AE/</url>
     <content><![CDATA[<p>测试</p>
@@ -18,16 +13,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Raft 算法</title>
-    <url>/2023/09/07/Raft-%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<p>raft 算法</p>
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>分布式</tag>
-      </tags>
+    <title>monorepo 架构和 turborepo 架构</title>
+    <url>/2023/09/08/monorepo-%E6%9E%B6%E6%9E%84%E5%92%8C-turborepo-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>如何封装自己的 react UI 组件库（一）</title>
@@ -102,11 +90,24 @@ pnpm add react react-dom
 <li>定义 Button 的一些属性</li>
 </ol>
 <pre><code class="typescript">interface ButtonProps &#123;
-    onClick?: () =&gt; void;
-    style?: React.CSSProperties;
-    variant?: &quot;default&quot; | &quot;dashed&quot; | &quot;outline&quot; | &quot;ghost&quot;;
-    children: React.ReactNode;
+  onClick?: () =&gt; void;
+  style?: React.CSSProperties;
+  variant?: &quot;default&quot; | &quot;dashed&quot; | &quot;outline&quot; | &quot;ghost&quot;;
+  children: React.ReactNode;
 &#125;
+</code></pre>
+<ol start="2">
+<li>渲染 Button 组件</li>
+</ol>
+<pre><code class="typescript">const Button: React.FC&lt;ButtonProps&gt; = (&#123;onClick, style, variant = &quot;default&quot;, children&#125;) =&gt; &#123;
+    return (
+        &lt;button className&#123;`button $&#123;variant&#125;`&#125; onClick=&#123;onClick&#125; style=&#123;style&#125;&gt;
+            &#123;children&#125;
+        &lt;/button&gt;
+    );
+&#125;;
+
+export default Button;
 </code></pre>
 ]]></content>
       <categories>
@@ -359,6 +360,18 @@ public class Main &#123;
       </categories>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Raft 算法</title>
+    <url>/2023/09/07/Raft-%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>raft 算法</p>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>分布式</tag>
       </tags>
   </entry>
   <entry>
