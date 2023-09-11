@@ -120,7 +120,7 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    947
+                    941
                 </span>
                 
                 
@@ -176,12 +176,17 @@
 <ol start="2">
 <li>渲染 Button 组件</li>
 </ol>
-<pre><code class="typescript">const Button: React.FC&lt;ButtonProps&gt; = (&#123;onClick, style, variant = &quot;default&quot;, children&#125;) =&gt; &#123;
-    return (
-        &lt;button className&#123;`button $&#123;variant&#125;`&#125; onClick=&#123;onClick&#125; style=&#123;style&#125;&gt;
-            &#123;children&#125;
-        &lt;/button&gt;
-    );
+<pre><code class="typescript">const Button: React.FC&lt;ButtonProps&gt; = (&#123;
+  onClick,
+  style,
+  variant = &quot;default&quot;,
+  children,
+&#125;) =&gt; &#123;
+  return (
+    &lt;button className=&#123;`button $&#123;variant&#125;`&#125; onClick=&#123;onClick&#125; style=&#123;style&#125;&gt;
+      &#123;children&#125;
+    &lt;/button&gt;
+  );
 &#125;;
 
 export default Button;
