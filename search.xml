@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>monorepo 架构和 turborepo 架构</title>
+    <url>/2023/09/08/monorepo-%E6%9E%B6%E6%9E%84%E5%92%8C-turborepo-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>RESP 协议</title>
     <url>/2023/09/07/RESP-%E5%8D%8F%E8%AE%AE/</url>
     <content><![CDATA[<p>测试</p>
@@ -22,22 +27,6 @@
       </categories>
       <tags>
         <tag>分布式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>monorepo 架构和 turborepo 架构</title>
-    <url>/2023/09/08/monorepo-%E6%9E%B6%E6%9E%84%E5%92%8C-turborepo-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>如何封装自己的 react UI 组件库（二）</title>
-    <url>/2023/09/11/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84-react-UI-%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="Button-按钮的实现"><a href="#Button-按钮的实现" class="headerlink" title="Button 按钮的实现"></a>Button 按钮的实现</h1>]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -95,6 +84,30 @@ pnpm add react react-dom
 </ul>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何封装自己的 react UI 组件库（二）</title>
+    <url>/2023/09/11/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84-react-UI-%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="Button-按钮的实现"><a href="#Button-按钮的实现" class="headerlink" title="Button 按钮的实现"></a>Button 按钮的实现</h1><ul>
+<li>实现思路很简单，就是将 html 的 Button 加上一些 css 样式，并让使用者可以传入 Button 的类型，例如 ghost 类型。</li>
+</ul>
+<ol>
+<li>定义 Button 的一些属性</li>
+</ol>
+<pre><code class="typescript">interface ButtonProps &#123;
+    onClick?: () =&gt; void;
+    style?: React.CSSProperties;
+    variant?: &quot;default&quot; | &quot;dashed&quot; | &quot;outline&quot; | &quot;ghost&quot;;
+    children: React.ReactNode;
+&#125;
+</code></pre>
 ]]></content>
       <categories>
         <category>前端</category>

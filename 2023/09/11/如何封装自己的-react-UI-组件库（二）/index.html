@@ -10,7 +10,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="Button 按钮的实现"> 
+    <meta name="description" content="Button 按钮的实现
+实现思路很简单，就是将 html 的 Button 加上一些 css 样式，并让使用者可以传入 Button 的类型，例如 ghost 类型。
+
+
+定义 Button 的一,"> 
     <meta name="author" content="Painter"> 
     <link rel="alternative" href="atom.xml" title="画师的世界" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -116,7 +120,7 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    107
+                    506
                 </span>
                 
                 
@@ -156,7 +160,20 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h1 id="Button-按钮的实现"><a href="#Button-按钮的实现" class="headerlink" title="Button 按钮的实现"></a>Button 按钮的实现</h1>
+            <h1 id="Button-按钮的实现"><a href="#Button-按钮的实现" class="headerlink" title="Button 按钮的实现"></a>Button 按钮的实现</h1><ul>
+<li>实现思路很简单，就是将 html 的 Button 加上一些 css 样式，并让使用者可以传入 Button 的类型，例如 ghost 类型。</li>
+</ul>
+<ol>
+<li>定义 Button 的一些属性</li>
+</ol>
+<pre><code class="typescript">interface ButtonProps &#123;
+    onClick?: () =&gt; void;
+    style?: React.CSSProperties;
+    variant?: &quot;default&quot; | &quot;dashed&quot; | &quot;outline&quot; | &quot;ghost&quot;;
+    children: React.ReactNode;
+&#125;
+</code></pre>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">

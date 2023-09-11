@@ -99,6 +99,15 @@
                                         <a class="timeline-title" target="_self" href="/2023/09/11/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84-react-UI-%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%88%E4%BA%8C%EF%BC%89/">如何封装自己的 react UI 组件库（二）</a>
                                         <p>
                                             Button 按钮的实现
+实现思路很简单，就是将 html 的 Button 加上一些 css 样式，并让使用者可以传入 Button 的类型，例如 ghost 类型。
+
+
+定义 Button 的一些属性
+
+interface ButtonProps &#123;
+    onClick?: () =&gt; void;
+    style?: React.CSSProperties;
+  ...
                                         </p>
                                     </div>
                                 </li>
