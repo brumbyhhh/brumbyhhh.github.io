@@ -5,16 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Raft 算法 - 画师的世界</title>
+    <title>深度剖析 Zookeeper.md - 画师的世界</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="什么是 Raft 算法？
-Raft 算法就是分布式领域的一种共识算法
-
-什么是共识算法？
-分布式领域的共识算法是用于确保分布式系统中的多个节点能够达成一致的决策或达成共识，在分布式系统中，节点之间可,"> 
+    
     <meta name="author" content="Painter"> 
     <link rel="alternative" href="atom.xml" title="画师的世界" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -78,7 +74,7 @@ Raft 算法就是分布式领域的一种共识算法
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://brumbyhhh.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Raft 算法</h3>
+        <h3 class="subtitle">深度剖析 Zookeeper.md</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -103,24 +99,23 @@ Raft 算法就是分布式领域的一种共识算法
             animation-duration: 1.2s;
             background-image: 
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url('https://github.com/brumbyhhh/image-hosting/blob/main/cover/wallhaven-3l2kmd.png?raw=true') ">
+                url('/img/cover.jpg') ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/后端"><b>「
-                    </b>后端<b> 」</b></a>
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                September 07, 2023
+                September 15, 2023
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2023/09/07/Raft-%E7%AE%97%E6%B3%95/" title="Raft 算法" class="">Raft 算法</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2023/09/15/%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90-Zookeeper-md/" title="深度剖析 Zookeeper.md" class="">深度剖析 Zookeeper.md</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    570
+                    0
                 </span>
                 
                 
@@ -138,8 +133,6 @@ Raft 算法就是分布式领域的一种共识算法
                 
             </p>
             
-            
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li></ul>
             
         </div>
     </div>
@@ -160,14 +153,7 @@ Raft 算法就是分布式领域的一种共识算法
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h1 id="什么是-Raft-算法？"><a href="#什么是-Raft-算法？" class="headerlink" title="什么是 Raft 算法？"></a>什么是 Raft 算法？</h1><ul>
-<li>Raft 算法就是<a href="https://brumbyhhh.github.io/2023/09/15/%E6%B7%B1%E5%85%A5%E5%88%86%E5%B8%83%E5%BC%8F-md/" style="color: #B0D468;">分布式</a>领域的一种共识算法</li>
-</ul>
-<h2 id="什么是共识算法？"><a href="#什么是共识算法？" class="headerlink" title="什么是共识算法？"></a>什么是共识算法？</h2><ul>
-<li>分布式领域的共识算法是用于确保分布式系统中的多个节点能够达成一致的决策或达成共识，在分布式系统中，节点之间可能会因为网络延迟、故障或其他问题而出现不同步的情况，共识算法的目标是协调这些节点以达成一致的状态。</li>
-<li>除了 Raft 算法，还有其他的共识算法，如 Paxos、Zookeeper 的 ZAB 协议等，不同的共识算法具有不同的特性和适用场景。</li>
-</ul>
-
+            
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
@@ -223,13 +209,6 @@ Raft 算法就是分布式领域的一种共识算法
             </div>
             
             
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Raft-%E7%AE%97%E6%B3%95%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么是 Raft 算法？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">什么是共识算法？</span></a></li></ol></li></ol>
-                </div>
-            </div>
             
             
         </div>
