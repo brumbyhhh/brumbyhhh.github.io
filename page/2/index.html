@@ -5,13 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>monorepo 架构和 turborepo 项目管理 - 画师的世界</title>
+    <title>画师的世界</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="monorepo 架构什么是 monorepo 架构
-monorepo（单一代码仓库） 架构是一种软件开发架构，其中一个项目将多个相关的项目或库，存储在一个单一的代码仓库中，而不是将它们分割成多个独,"> 
+    
     <meta name="author" content="Painter"> 
     <link rel="alternative" href="atom.xml" title="画师的世界" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -68,78 +67,129 @@ monorepo（单一代码仓库） 架构是一种软件开发架构，其中一�
     </div>
     <span id="config-title" style="display:none">画师的世界</span>
     <div id="loader"></div>
-    <div id="single">
-    <div class="scrollbar gradient-bg-rev"></div>
-<div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <div class="navigation animated fadeIn fast delay-1s">
-        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://brumbyhhh.github.io">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">monorepo 架构和 turborepo 项目管理</h3>
-        <div class="social">
-            <!--        <div class="like-icon">-->
-            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-            <!--        </div>-->
-            <div>
-                <div class="share">
-                    
-                        <a href="javascript:;" class="iconfont icon-share1"></a>
-                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
-                    
-                </div>
-            </div>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/about/" title="ABOUT" external="false">ABOUT</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/tags/" title="TAGS" external="false">TAGS</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/categories/" title="CATEGORIES" external="false">CATEGORIES</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/archives/" title="ARCHIVES" external="false">ARCHIVES</a>
+        </li>
+        
+    </ul>
+    <p class="copyright" id="copyright">
+        &copy; 2023 Painter.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+    </p>
+</div>
+
+<div id="container">
+    
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input" />
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+        <div id="local-search-result" class="local-search-result-cls" data-initialise="Initialising search index..."
+            data-start="Please input search keywords." data-empty="No result found, please try other keywords.">
+            <span>Please input search keywords.</span>
         </div>
     </div>
 </div>
-
-    <div class="section">
-        <div class=article-header-wrapper>
-    <div class="article-header">
-        <div class="article-cover animated fadeIn" style="
-            animation-delay: 600ms;
-            animation-duration: 1.2s;
-            background-image: 
-                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url('https://github.com/brumbyhhh/image-hosting/blob/main/cover/wallhaven-3l25ov.jpg?raw=true') ">
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/favicon.png" alt="">
+            <a class="image-logo" href="/"></a>
         </div>
-        <div class="else">
-            <p class="animated fadeInDown">
-                
-                <a href="/categories/前端"><b>「
-                    </b>前端<b> 」</b></a>
-                
-                September 08, 2023
-            </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2023/09/08/monorepo-%E6%9E%B6%E6%9E%84%E5%92%8C-turborepo-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" title="monorepo 架构和 turborepo 项目管理" class="">monorepo 架构和 turborepo 项目管理</a>
-            </h3>
+        <ul id="menu-menu" class="menu text-menu">
             
-            <p class="post-count animated fadeInDown">
-                
-                <span>
-                    <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    2k
-                </span>
-                
-                
-                <span>
-                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    2 mins.
-                </span>
-                
-                
-                
-                <span id="busuanzi_container_page_pv">
-                    <b class="iconfont icon-read"></b> <i>Read count</i>
-                    <span id="busuanzi_value_page_pv">0</span>
-                </span>
-                
-            </p>
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/about/" title="ABOUT" external="false" class="menu-link">ABOUT</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/tags/" title="TAGS" external="false" class="menu-link">TAGS</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/categories/" title="CATEGORIES" external="false" class="menu-link">CATEGORIES</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/archives/" title="ARCHIVES" external="false" class="menu-link">ARCHIVES</a>
+            </li>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li></ul>
+            <li class="animated fadeInDown search-bar iconfont icon-search"></li>
             
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+    </div>
+</div>
+<div id="screen">
+    <div id="mark">
+        <div class="cover animated fadeIn" style="
+            animation-delay: 900ms;
+            animation-duration: 2.8s;
+            background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
+                url(/img/cover.jpg);">
         </div>
     </div>
+    
+    <div id="post0" class="else">
+        <p class="animated fadeInDown">
+            
+            <a href="/categories/后端"><b>「
+                </b>后端<b> 」</b></a>
+            
+            September 07, 2023
+        </p>
+        <h3 class="post-title animated fadeInDown">
+            <a href="/2023/09/07/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" title="深入理解分布式锁" class="posttitle">深入理解分布式锁</a></h3>
+        
+        <p class="post-count animated fadeInDown">
+            
+            <span>
+                <b class="iconfont icon-text2"></b> <i>Words count</i>
+                1.5k
+            </span>
+            
+            
+            <span>
+                <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                1 mins.
+            </span>
+            
+            
+        </p>
+        
+        
+        <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li></ul>
+        
+        <div class="md-content animated fadeIn">
+            
+            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems...</p>
+            
+            <span class="read-more"><a href="/2023/09/07/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" title="Read article" class="posttitle">Read article</a>
+                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+    
 </div>
 
 <div class="screen-gradient-after">
@@ -147,118 +197,67 @@ monorepo（单一代码仓库） 架构是一种软件开发架构，其中一�
         <div class="screen-gradient-content-inside">
             <div class="bold-underline-links screen-gradient-sponsor">
                 <p>
-                    <span class="animated fadeIn delay-1s"></span>
+                    <span class="typed-text"></span>
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="article">
-    <div class='main'>
-        <div class="content markdown animated fadeIn">
-            <h1 id="monorepo-架构"><a href="#monorepo-架构" class="headerlink" title="monorepo 架构"></a>monorepo 架构</h1><h2 id="什么是-monorepo-架构"><a href="#什么是-monorepo-架构" class="headerlink" title="什么是 monorepo 架构"></a>什么是 monorepo 架构</h2><ul>
-<li>monorepo（单一代码仓库） 架构是一种软件开发架构，其中一个项目将多个相关的项目或库，存储在一个单一的代码仓库中，而不是将它们分割成多个独立的代码仓库。</li>
-<li>这个架构的主要思想就是将所有的项目代码和相关资源集中管理，以提高开发效率、协作性和代码共享。</li>
-</ul>
-<h2 id="monorepo-的优缺点"><a href="#monorepo-的优缺点" class="headerlink" title="monorepo 的优缺点"></a>monorepo 的优缺点</h2><ul>
-<li><strong>优点</strong>：<ul>
-<li><strong>代码共享和重用</strong>：不同的项目之间可以更轻松的共享代码和模块，可以降低测试成本，提高代码的可维护性。</li>
-<li><strong>统一的构建和部署流程</strong>：所有的项目使用相同的构建工具和流程，使构建、测试和部署更加一致和可控。</li>
-<li><strong>更好的协作和可见性</strong>：开发团队可以更容易地查看和协作其他项目的代码，因为它们都存放在同一个仓库，不需要切换多个仓库。</li>
-<li><strong>版本管理和依赖管理</strong>：版本控制和依赖管理在 monorepo 中更加简化，因为所有项目都受到相同的版本管理策略的约束，可以减少版本冲突。<ul>
-<li><strong>什么是相同的版本管理策略？</strong><ul>
-<li><strong>共享版本号</strong>：所有项目的版本号都是统一的，就是说你在一个项目中进行了版本号的更改，其他项目的版本号也会更改，这确保了所有项目在同一个版本号下工作。</li>
-<li><strong>共享依赖管理</strong>：monorepo 的所有项目通常会共享相同的依赖管理机制。这意味着它们可能使用相同的依赖管理工具（如 pnpm 或 yarn），并共享依赖项的版本信息，这有助于减少版本冲突，确保依赖项的一致性。</li>
-<li><strong>版本发布和部署协调</strong>：在 monorepo 中，版本发布和部署通常是协调的。这意味着当一个项目升级到新版本时，可能需要确保其他项目也能够适应这个新版本，以避免不兼容或错误。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>更容易重构和代码重组</strong>：因为所有代码都在同一个仓库中，因此更容易进行大规模的重构或重新组织代码。</li>
-<li><strong>更快的构建和测试</strong>：monorepo 可以充分的利用缓存和共享依赖，因此在构建和测试方面都能更高效。</li>
-</ul>
-</li>
-<li><strong>缺点</strong>：<ul>
-<li><strong>复杂性增加</strong>：将多个项目或库存储在一个单一的代码仓库中可能会增加仓库的复杂性。大型 monorepo 可能会变得难以管理，特别是团队中有多个开发人员同时提交更改时。</li>
-<li><strong>构建和部署时间延长</strong>：如果 monorepo 包含大量的项目或库，构建和部署整个仓库可能会变得非常耗时，尤其是在 CI&#x2F;CD 流程中。</li>
-<li><strong>难以维护权限和访问控制</strong>：在 monorepo 中实施细粒度的权限和访问控制可能变得很复杂，有时需要额外的工作来确保只有特定项目的开发人员能够访问或修改代码。</li>
-<li><strong>依赖冲突</strong>：在某些情况下，monorepo 也可能会产生依赖冲突，比如 monorepo 的两个项目中一个项目需要较新的依赖，另一个老项目中需要较老的依赖，这种情况就会依赖冲突。解决方法就是定期进行测试和构建，以确保所有的项目与其依赖项保持兼容。</li>
-<li><strong>团队协作问题</strong>：monorepo 可能需要更多的团队协作和沟通，以确保不同项目之间的变更不会冲突或破坏其他部分代码。</li>
-</ul>
-</li>
-</ul>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
-                data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
+    <div id="primary">
+        
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
             
-            <ul id="audio-list" style="display:none">
+                <a href="/categories/后端">
+                  <b>「 </b>后端<b> 」</b>
+                </a>
+            
+            September 07, 2023
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2023/09/07/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" title="深入理解分布式锁" class="posttitle">深入理解分布式锁</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        1.5k
+                    </span>
                 
                 
-                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        1 mins.
+                    </span>
                 
-                    
-            </ul>
+                
+            </p>
             
-                        
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li></ul>
             
+        
+        <div class="md-content animated fadeIn">
             
-    <div id='gitalk-container' class="comment link"
-        data-ae='false'
-        data-ci=''
-        data-cs=''
-        data-r=''
-        data-o=''
-        data-a=''
-        data-d=''
-        data-p='https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
-    >Comments</div>
-
-
+                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post...</code></pre>
             
-            
-        </div>
-        <div class="sidebar">
-            <div class="box animated fadeInRight">
-                <div class="subbox">
-                    <img src="/img/avatar.jpg" height=300 width=300></img>
-                    <p>Painter</p>
-                    <span>年来鞍马困尘埃，赖有青山豁我怀</span>
-                    <dl>
-                        
-                            
-                            
-                            
-                        
-                        
-                    </dl>
-                </div>
-                <ul>
-                    <li><a href="/">11 <p>Articles</p></a></li>
-                    <li><a href="/categories">2 <p>Categories</p></a></li>
-                    <li><a href="/tags">5 <p>Tags</p></a></li>
-                </ul>
-            </div>
-            
-            
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#monorepo-%E6%9E%B6%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">monorepo 架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-monorepo-%E6%9E%B6%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">什么是 monorepo 架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#monorepo-%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">monorepo 的优缺点</span></a></li></ol></li></ol>
-                </div>
-            </div>
-            
-            
+            <span class="read-more"><a href="/2023/09/07/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
 </div>
 
+
     </div>
+    
 </div>
+<div id="preview"></div>
+
     <div id="back-to-top" class="animated fadeIn faster">
         <div class="flow"></div>
         <span class="percentage animated fadeIn faster">0%</span>
