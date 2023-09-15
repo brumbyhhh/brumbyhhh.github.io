@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>RESP 协议</title>
+    <url>/2023/09/07/RESP-%E5%8D%8F%E8%AE%AE/</url>
+    <content><![CDATA[<p>测试</p>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Paxos 算法</title>
     <url>/2023/09/15/Paxos-%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Raft 算法</title>
+    <url>/2023/09/07/Raft-%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="../css/index.css">
+
+<h1 id="什么是-Raft-算法？"><a href="#什么是-Raft-算法？" class="headerlink" title="什么是 Raft 算法？"></a>什么是 Raft 算法？</h1><p><a href="https://github.com/">ceui</a>{.a-style}</p>
+<ul>
+<li>Raft 算法就是<a href="https://brumbyhhh.github.io/2023/09/15/%E6%B7%B1%E5%85%A5%E5%88%86%E5%B8%83%E5%BC%8F-md/" style="color: #B0D468;">分布式</a>领域的一种共识算法</li>
+</ul>
+<h2 id="什么是共识算法？"><a href="#什么是共识算法？" class="headerlink" title="什么是共识算法？"></a>什么是共识算法？</h2><ul>
+<li>分布式领域的共识算法是用于确保分布式系统中的多个节点能够达成一致的决策或达成共识，在分布式系统中，节点之间可能会因为网络延迟、故障或其他问题而出现不同步的情况，共识算法的目标是协调这些节点以达成一致的状态。</li>
+<li>除了 Raft 算法，还有其他的共识算法，如 <a href style="color: #B0D468">Paxos</a><a href style="color: #B0D468">Zookeeper</a> 的 ZAB 协议等，不同的共识算法具有不同的特性和适用场景。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>分布式</tag>
+      </tags>
   </entry>
   <entry>
     <title>如何封装自己的 react UI 组件库（Button）</title>
@@ -185,18 +218,6 @@ pnpm add react react-dom
       </tags>
   </entry>
   <entry>
-    <title>RESP 协议</title>
-    <url>/2023/09/07/RESP-%E5%8D%8F%E8%AE%AE/</url>
-    <content><![CDATA[<p>测试</p>
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>monorepo 架构和 turborepo 项目管理</title>
     <url>/2023/09/08/monorepo-%E6%9E%B6%E6%9E%84%E5%92%8C-turborepo-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h1 id="monorepo-架构"><a href="#monorepo-架构" class="headerlink" title="monorepo 架构"></a>monorepo 架构</h1><h2 id="什么是-monorepo-架构"><a href="#什么是-monorepo-架构" class="headerlink" title="什么是 monorepo 架构"></a>什么是 monorepo 架构</h2><ul>
@@ -237,29 +258,6 @@ pnpm add react react-dom
       <tags>
         <tag>架构</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Raft 算法</title>
-    <url>/2023/09/07/Raft-%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="什么是-Raft-算法？"><a href="#什么是-Raft-算法？" class="headerlink" title="什么是 Raft 算法？"></a>什么是 Raft 算法？</h1><ul>
-<li>Raft 算法就是<a href="https://brumbyhhh.github.io/2023/09/15/%E6%B7%B1%E5%85%A5%E5%88%86%E5%B8%83%E5%BC%8F-md/" style="color: #B0D468;">分布式</a>领域的一种共识算法</li>
-</ul>
-<h2 id="什么是共识算法？"><a href="#什么是共识算法？" class="headerlink" title="什么是共识算法？"></a>什么是共识算法？</h2><ul>
-<li>分布式领域的共识算法是用于确保分布式系统中的多个节点能够达成一致的决策或达成共识，在分布式系统中，节点之间可能会因为网络延迟、故障或其他问题而出现不同步的情况，共识算法的目标是协调这些节点以达成一致的状态。</li>
-<li>除了 Raft 算法，还有其他的共识算法，如 <a href style="color: #B0D468">Paxos</a><a href style="color: #B0D468">Zookeeper</a> 的 ZAB 协议等，不同的共识算法具有不同的特性和适用场景。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>分布式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>深入分布式</title>
-    <url>/2023/09/15/%E6%B7%B1%E5%85%A5%E5%88%86%E5%B8%83%E5%BC%8F/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>深入理解分布式锁</title>
@@ -529,6 +527,11 @@ public class Main &#123;
       <tags>
         <tag>算法</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>深入分布式</title>
+    <url>/2023/09/15/%E6%B7%B1%E5%85%A5%E5%88%86%E5%B8%83%E5%BC%8F/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>深度剖析 Zookeeper</title>
