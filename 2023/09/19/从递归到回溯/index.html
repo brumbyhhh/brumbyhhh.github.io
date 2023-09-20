@@ -5,15 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>敏感词过滤如何实现 - 画师的世界</title>
+    <title>从递归到回溯 - 画师的世界</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="实现敏感词过滤的步骤
-构建敏感词汇列表：首先你需要创建一个敏感词汇的列表或词库，表示不当内容。
-选择过滤方法:
-关键词匹配：使用字符串匹配算法，检查文本中是否包含敏感词汇，这是最简单的方法，但不适用,"> 
+    <meta name="description" content="从递归到回溯
+"> 
     <meta name="author" content="Painter"> 
     <link rel="alternative" href="atom.xml" title="画师的世界" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -77,7 +75,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://brumbyhhh.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">敏感词过滤如何实现</h3>
+        <h3 class="subtitle">从递归到回溯</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -102,7 +100,7 @@
             animation-duration: 1.2s;
             background-image: 
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url('https://github.com/brumbyhhh/image-hosting/blob/main/cover/wallhaven-yx2lyg.jpg?raw=true') ">
+                url('https://github.com/brumbyhhh/image-hosting/blob/main/cover/wallhaven-vqeg9m.png?raw=true') ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
@@ -110,22 +108,22 @@
                 <a href="/categories/后端"><b>「
                     </b>后端<b> 」</b></a>
                 
-                September 08, 2023
+                September 19, 2023
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2023/09/08/%E6%95%8F%E6%84%9F%E8%AF%8D%E8%BF%87%E6%BB%A4%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0/" title="敏感词过滤如何实现" class="">敏感词过滤如何实现</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2023/09/19/%E4%BB%8E%E9%80%92%E5%BD%92%E5%88%B0%E5%9B%9E%E6%BA%AF/" title="从递归到回溯" class="">从递归到回溯</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    6.9k
+                    14
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    6 mins.
+                    1 mins.
                 </span>
                 
                 
@@ -159,240 +157,7 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h1 id="实现敏感词过滤的步骤"><a href="#实现敏感词过滤的步骤" class="headerlink" title="实现敏感词过滤的步骤"></a>实现敏感词过滤的步骤</h1><ul>
-<li><strong>构建敏感词汇列表</strong>：首先你需要创建一个敏感词汇的列表或词库，表示不当内容。</li>
-<li><strong>选择过滤方法</strong>:<ul>
-<li><strong>关键词匹配</strong>：使用字符串匹配算法，检查文本中是否包含敏感词汇，这是最简单的方法，但不适用于复杂的敏感词汇。</li>
-<li><strong>正则表达式</strong>：使用正则表达式来匹配敏感词汇，这允许更灵活的匹配模式。</li>
-<li><strong>Tire 树</strong>：构建一个 Trie 树，将敏感词汇插入树中，并通过树的遍历来检查文本。</li>
-<li><strong>机器学习</strong>：使用自然语言 NPL 和机器学习技术训练模型，以检测和过滤不当的内容。</li>
-</ul>
-</li>
-<li><strong>过滤文本</strong>：将要过滤的文本传递给你选择的过滤方法，检查是否包含敏感词汇。</li>
-<li><strong>替换或删除敏感词汇</strong>：如果文本中包含敏感词汇，你可以选择替换敏感词汇，将其标记为占位符或完全删除，具体取决于你的需求。</li>
-<li><strong>性能优化</strong>：如果对于大量文本的处理，你需要考虑性能，可以使用一些技巧提高过滤速度，例如缓存已处理的文本、使用多线程或并行处理等。</li>
-<li><strong>维护词库</strong>：定期更新敏感词汇列表以反映新的敏感内容。可以手动更新，也可以自动从可信来源获取。</li>
-</ul>
-<h1 id="过滤的方法"><a href="#过滤的方法" class="headerlink" title="过滤的方法"></a>过滤的方法</h1><p>选择过滤的方法，是实现敏感词过滤的关键，如何实现这个过滤方法呢？这篇文章主要使用前缀树来实现敏感词过滤的功能。我先来介绍一下什么是前缀树？</p>
-<h2 id="前缀树"><a href="#前缀树" class="headerlink" title="前缀树"></a>前缀树</h2><ul>
-<li><p><strong>什么是前缀树？</strong></p>
-<ul>
-<li>通常是用于存储和检索字符串集合中的字符串，它是一种用于快速查找和匹配前缀的数据结构，因此称为前缀树。</li>
-<li><strong>前缀树的特点</strong><ol>
-<li><strong>树状结构</strong>：前缀树是一个树，其中每个节点代表一个字符，从根节点开始到叶子节点的路径组合在一起形成一个字符串。根节点不包括字符，每个子节点表示一个字符。</li>
-<li><strong>前缀匹配</strong>：前缀树主要用途是查找具有特定前缀的字符串。通过从根节点开始，沿着树的路径移动，可以逐个字符地匹配输入的前缀，直到找到相应的节点或者确定前缀不存在。</li>
-<li><strong>高效的查找</strong>：因为前缀树将相同的前缀的字符串共享相同的前缀路径，因此它非常适合存储大量的字符串，并且可以在常数时间内查找、插入和删除字符串。</li>
-<li><strong>空间消耗</strong>：前缀树的主要缺点是它可能占用大量的内存，特别是当字符串集合中的字符串共享大量前缀时，为了减少内存占用，可以使用压缩前缀树（如压缩字典或基数树）</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p><strong>如何实现前缀树？</strong></p>
-<ul>
-<li><p><strong>定义节点结构</strong></p>
-<ul>
-<li><code>children</code>：一个映射或数组，用于存储子节点，其中键或索引对应于字符串或字符集</li>
-<li><code>isEnd</code>：一个布尔值，指示当前节点是否代表一个字符串的结尾。</li>
-</ul>
-<pre><code class="golang">// TrieNode 表示前缀树的节点
-type TrieNode struct &#123;
-    children map[rune]*TrieNode
-    isEnd bool
-&#125;
-// Trie 表示前缀树
-type Trie struct &#123;
-
-&#125;
-// NewTrie 创建一个新的前缀树
-func NewTrie() *Trie &#123;
-    return &amp;Trie &#123;
-        root: &amp;TrieNode &#123;
-            children: make(map[rune]*TrieNode),
-            isEnd: false
-        &#125;,
-    &#125;
-&#125;
-</code></pre>
-</li>
-<li><p><strong>插入操作</strong></p>
-<ul>
-<li>实现插入操作以将字符串添加到前缀树中<ul>
-<li>从根节点开始，遍历要插入的字符串的字符。</li>
-<li>对于每个字符，检查它是否已经作为子节点的存在，如果不存在，则创建一个新节点并将其添加到当前节点的子节点映射或数组中。</li>
-<li>移动到下一个节点，并继续这个过程，直到插入完整字符串。</li>
-<li>在插入的最后一个字符节点上设置 <code>isEnd</code> 标志，表示一个完整的字符串已经插入。</li>
-</ul>
-</li>
-</ul>
-<pre><code class="golang">// 向前缀树中插入一个字符串
-func (t *Trie) Insert(word string) &#123;
-    node := t.root
-    for _, char := range word &#123;
-        if node.children[char] == nil &#123;
-            node.children[char] = &amp;TrieNode&#123;
-                children: make(map[rune]*TrieNode),
-                isEnd: false,
-            &#125;
-        &#125;
-        node = node.children[char]
-    &#125;
-    node.isEnd = true
-&#125;
-</code></pre>
-</li>
-<li><p><strong>搜索操作</strong></p>
-<ul>
-<li>实现搜索操作以查找前缀或整个字符串<ul>
-<li>从根节点开始，遍历要搜索的字符串的字符。</li>
-<li>对于每个字符，检查它是否作为子节点存在。如果存在，继续向下移动。</li>
-<li>如果在搜索的过程中遇到任何字符节点不存在，或者搜索完成后发现当前节点的 <code>isEnd</code> 标志未设置，那么表示该字符串不存在于前缀树中。</li>
-</ul>
-</li>
-</ul>
-<pre><code class="golang">// 搜索前缀树以检查字符串是否存在
-func (t *Trie) Search(word string) bool &#123;
-    node := t.root
-    for _, char := range word &#123;
-        if node.children[char] == nil &#123;
-            return false
-        &#125;
-        node = node.children[char]
-    &#125;
-    return node.isEnd
-&#125;
-</code></pre>
-</li>
-<li><p><strong>完整实现</strong></p>
-<ul>
-<li>golang 实现</li>
-</ul>
-<pre><code class="golang">package main
-import &quot;fmt&quot;
-
-// TrieNode 表示前缀树的节点
-type TrieNode struct &#123;
-    children map[rune]*TrieNode
-    isEnd    bool
-&#125;
-
-// Trie 表示前缀树
-type Trie struct &#123;
-    root *TrieNode
-&#125;
-
-// NewTrie 创建一个新的前缀树
-func NewTrie() *Trie &#123;
-    return &amp;Trie&#123;
-        root: &amp;TrieNode&#123;
-            children: make(map[rune]*TrieNode),
-            isEnd:    false,
-        &#125;,
-    &#125;
-&#125;
-
-// Insert 向前缀树中插入一个字符串
-func (t *Trie) Insert(word string) &#123;
-    node := t.root
-    for _, char := range word &#123;
-        if node.children[char] == nil &#123;
-            node.children[char] = &amp;TrieNode&#123;
-                children: make(map[rune]*TrieNode),
-                isEnd:    false,
-            &#125;
-        &#125;
-        node = node.children[char]
-    &#125;
-    node.isEnd = true
-&#125;
-
-// Search 搜索前缀树以检查字符串是否存在
-func (t *Trie) Search(word string) bool &#123;
-    node := t.root
-    for _, char := range word &#123;
-        if node.children[char] == nil &#123;
-            return false
-        &#125;
-        node = node.children[char]
-    &#125;
-    return node.isEnd
-&#125;
-
-func main() &#123;
-    trie := NewTrie()
-    trie.Insert(&quot;apple&quot;)
-    trie.Insert(&quot;app&quot;)
-    trie.Insert(&quot;banana&quot;)
-
-    fmt.Println(trie.Search(&quot;apple&quot;))   // true
-    fmt.Println(trie.Search(&quot;app&quot;))     // true
-    fmt.Println(trie.Search(&quot;banana&quot;))  // true
-    fmt.Println(trie.Search(&quot;orange&quot;))  // false
-    fmt.Println(trie.Search(&quot;apples&quot;))  // false
-&#125;
-</code></pre>
-</li>
-<li><p>Java 实现</p>
-</li>
-</ul>
-<pre><code class="java">import java.util.HashMap;
-import java.util.Map;
-
-class TrieNode &#123;
-  Map&lt;Character, TrieNode&gt; children;
-  boolean isEnd;
-
-  public TrieNode() &#123;
-      this.children = new HashMap&lt;&gt;();
-      this.isEnd = false;
-  &#125;
-&#125;
-
-class Trie &#123;
-  TrieNode root;
-
-  public Trie() &#123;
-      this.root = new TriredNode();
-  &#125;
-
-  public void insert(String word) &#123;
-      TrieNode node = this.root;
-      for (char c : word.toCharArray()) &#123;
-          if (!node.children.containsKey(c)) &#123;
-              node.children.put(c, new TrieNode());
-          &#125;
-          node = node.children.get(c);
-      &#125;
-      node.isEnd = true;
-  &#125;
-
-  public void search(String word) &#123;
-      TrieNode node = this.root;
-      for (char c : word.toCharArray()) &#123;
-          if (!node.children.containsKey(c)) &#123;
-              return false;
-          &#125;
-          node = node.children.get(c);
-      &#125;
-      return node.isEnd;
-  &#125;
-&#125;
-public class Main &#123;
-  public static void main(String[] args) &#123;
-      Trie trie = new Trie();
-      trie.insert(&quot;apple&quot;);
-      trie.insert(&quot;app&quot;);
-      trie.insert(&quot;banana&quot;);
-
-      System.out.println(trie.search(&quot;apple&quot;));   // true
-      System.out.println(trie.search(&quot;app&quot;));     // true
-      System.out.println(trie.search(&quot;banana&quot;));  // true
-      System.out.println(trie.search(&quot;orange&quot;));  // false
-      System.out.println(trie.search(&quot;apples&quot;));  // false
-  &#125;
-&#125;
-</code></pre>
-</li>
-</ul>
+            <p>从递归到回溯</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -449,13 +214,6 @@ public class Main &#123;
             </div>
             
             
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%95%8F%E6%84%9F%E8%AF%8D%E8%BF%87%E6%BB%A4%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.</span> <span class="toc-text">实现敏感词过滤的步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">过滤的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BC%80%E6%A0%91"><span class="toc-number">2.1.</span> <span class="toc-text">前缀树</span></a></li></ol></li></ol>
-                </div>
-            </div>
             
             
         </div>
