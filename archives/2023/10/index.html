@@ -77,7 +77,7 @@
                 <div class="content animated fadeIn">
                     <div class="set">
                         <h1 style="text-align: center">Archived</h1>
-                        <p style="text-align: center">「 14 」</p>
+                        <p style="text-align: center">「 15 」</p>
                         <ul class="timeline timeline-centered">
                             
                             
@@ -96,10 +96,30 @@
                                     </div>
                                     <div class="timeline-marker"></div>
                                     <div class="timeline-content">
+                                        <a class="timeline-title" target="_self" href="/2023/10/07/Go-%E7%9A%84%E5%B9%B6%E5%8F%91%E5%8E%9F%E7%90%86/">Go 的并发原理</a>
+                                        <p>
+                                            
+                                        </p>
+                                    </div>
+                                </li>
+                            
+                                
+                                <li class="timeline-item">
+                                    <div class="timeline-info">
+                                        <span class="gradient-text">October 07, 2023</span>
+                                    </div>
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
                                         <a class="timeline-title" target="_self" href="/2023/10/07/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20golang%20%E4%B8%AD%E7%9A%84%20channel/">深入理解 golang 中的 channel</a>
                                         <p>
-                                            test
+                                            channel 底层是怎样的
+channel 是用来在多个 goroutine 之间传递数据的一个通道。
 
+channel 的底层是一个 hchan 的结构体，channel 分有缓冲的 channel 和无缓冲的 channel，在创建一个有缓冲的 channel 实际上底层是依赖一个循环数组。
+
+为什么 channel 底层要使用循环数组？
+
+高效的出队操作：循环数组允许快速出队操作，无...
                                         </p>
                                     </div>
                                 </li>
