@@ -297,7 +297,7 @@ type hchan struct &#123;
 <li>当我开始向 channel 中写入或读取数据，就是将数据从 goroutine 中 copy 到队列中（写入）或者将数据从队列 copy 到 goroutine 当中。</li>
 </ul>
 <h3 id="如果-channel-的缓冲满了，底层是如何处理的"><a href="#如果-channel-的缓冲满了，底层是如何处理的" class="headerlink" title="如果 channel 的缓冲满了，底层是如何处理的"></a>如果 channel 的缓冲满了，底层是如何处理的</h3><ul>
-<li>如果 channel 的缓冲满了，直观情况就是会阻塞在这里。我们需要先学习一下<a href="https://brumbyhhh.github.io/2023/09/15/%E6%B7%B1%E5%85%A5%E5%88%86%E5%B8%83%E5%BC%8F-md/" style="color: #B0D468;">Go 的调度原理</a></li>
+<li>如果 channel 的缓冲满了，直观情况就是会阻塞在这里。我们需要先学习一下<a href="https://brumbyhhh.github.io/2023/10/07/Go-%E7%9A%84%E5%B9%B6%E5%8F%91%E5%8E%9F%E7%90%86/" style="color: #B0D468;">Go 的调度原理</a></li>
 </ul>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
