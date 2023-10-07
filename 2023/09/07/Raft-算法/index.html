@@ -120,7 +120,7 @@ Raft 算法就是分布式领域的一种共识算法
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    4k
+                    4.1k
                 </span>
                 
                 
@@ -168,12 +168,15 @@ Raft 算法就是分布式领域的一种共识算法
 <li>除了 Raft 算法，还有其他的共识算法，如 <a href="https://brumbyhhh.github.io/2023/09/15/Paxos-%E7%AE%97%E6%B3%95/" style="color: #B0D468">Paxos</a>，<a href="https://brumbyhhh.github.io/2023/09/15/%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90-Zookeeper/" style="color: #B0D468">Zookeeper</a> 的 ZAB 协议等，不同的共识算法具有不同的特性和适用场景。</li>
 </ul>
 <h1 id="Raft-算法的基本原理是什么？"><a href="#Raft-算法的基本原理是什么？" class="headerlink" title="Raft 算法的基本原理是什么？"></a>Raft 算法的基本原理是什么？</h1><ul>
-<li>Raft 算法的核心思想就是通过选举机制和日志复制来实现共识，确保系统中的所有节点都达成相同的状态。</li>
-<li><strong>选举机制</strong><ul>
+<li><p>Raft 算法的核心思想就是通过选举机制和日志复制来实现共识，确保系统中的所有节点都达成相同的状态。</p>
+</li>
+<li><p><strong>选举机制</strong></p>
+<ul>
 <li>Raft 算法中的节点通过选举机制来确定一个领导者节点，领导者负责接收客户端请求，将其添加到日志中，并复制日志到其他节点。领导者选举是通过随机的超时机制来触发的，节点等待一个随机时间，然后发起选举请求，如果一个节点在一轮选举中获得了多数票的支持，那么它就会成为新的领导者。</li>
 </ul>
 </li>
-<li><strong>日志复制</strong><ul>
+<li><p><strong>日志复制</strong></p>
+<ul>
 <li>当领导者选举完成后，领导者负责维护一个日志，所有客户端的请求都会添加到这个日志中。领导者通过发送 Append Entries（追加条目） 消息将自己的日志条目复制到其他节点。其他节点接收到这些消息后，会根据领导者的日志来更新自己的日志，以保持一致性。</li>
 <li><strong>什么是追加条目消息？</strong><ul>
 <li>Append Entries 消息是 Raft 算法中的核心通信机制之一，用于实现日志的复制和一致性的维护。这种消息是领导者节点向跟随节点发送的，目的是将领导者自己的条目日志追加到追随者的日志中，从而保持各节点的日志一致。</li>
@@ -190,7 +193,8 @@ Raft 算法就是分布式领域的一种共识算法
 </li>
 </ul>
 </li>
-<li><strong>安全性</strong><ul>
+<li><p><strong>安全性</strong></p>
+<ul>
 <li>Raft 算法具有一些安全性的保证，例如：<ul>
 <li>日志条目只能从领导者传播到其他节点。</li>
 <li>一个节点只能在已提交的日志条目上应用状态机，以确保相同的命令在所有节点上具有相同的效果。<ul>
@@ -235,11 +239,16 @@ Raft 算法就是分布式领域的一种共识算法
 </li>
 </ul>
 </li>
-<li><strong>成员变更</strong><ul>
+<li><p><strong>成员变更</strong></p>
+<ul>
 <li>Raft 允许在运行时动态添加或删除节点。这些变更通过特殊的配置变更日志条目来实现，确保新节点能够快速假如系统并保证一致性。</li>
 </ul>
 </li>
+<li><p><strong>实现一个简单的 raft 算法</strong></p>
+</li>
 </ul>
+<pre><code class="golang">
+</code></pre>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -289,9 +298,9 @@ Raft 算法就是分布式领域的一种共识算法
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">12 <p>Articles</p></a></li>
+                    <li><a href="/">14 <p>Articles</p></a></li>
                     <li><a href="/categories">2 <p>Categories</p></a></li>
-                    <li><a href="/tags">5 <p>Tags</p></a></li>
+                    <li><a href="/tags">7 <p>Tags</p></a></li>
                 </ul>
             </div>
             

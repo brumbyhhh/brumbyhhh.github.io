@@ -147,7 +147,7 @@
             animation-duration: 2.8s;
             background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
-                url(https://github.com/brumbyhhh/image-hosting/blob/main/cover/wallhaven-vqeg9m.png?raw=true);">
+                url(https://github.com/brumbyhhh/image-hosting/blob/main/cover/wallhaven-85j96y.jpg?raw=true);">
         </div>
     </div>
     
@@ -157,16 +157,16 @@
             <a href="/categories/后端"><b>「
                 </b>后端<b> 」</b></a>
             
-            September 19, 2023
+            October 07, 2023
         </p>
         <h3 class="post-title animated fadeInDown">
-            <a href="/2023/09/19/%E4%BB%8E%E9%80%92%E5%BD%92%E5%88%B0%E5%9B%9E%E6%BA%AF/" title="从递归到回溯" class="posttitle">从递归到回溯</a></h3>
+            <a href="/2023/10/07/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20golang%20%E4%B8%AD%E7%9A%84%20channel/" title="深入理解 golang 中的 channel" class="posttitle">深入理解 golang 中的 channel</a></h3>
         
         <p class="post-count animated fadeInDown">
             
             <span>
                 <b class="iconfont icon-text2"></b> <i>Words count</i>
-                14
+                12
             </span>
             
             
@@ -179,14 +179,14 @@
         </p>
         
         
-        <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+        <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/golang/" rel="tag">golang</a></li></ul>
         
         <div class="md-content animated fadeIn">
             
-            <p>从递归到回溯</p>
+            <p>test</p>
 
             
-            <span class="read-more"><a href="/2023/09/19/%E4%BB%8E%E9%80%92%E5%BD%92%E5%88%B0%E5%9B%9E%E6%BA%AF/" title="Read article" class="posttitle">Read article</a>
+            <span class="read-more"><a href="/2023/10/07/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20golang%20%E4%B8%AD%E7%9A%84%20channel/" title="Read article" class="posttitle">Read article</a>
                 <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
@@ -207,6 +207,125 @@
 
     <div id="primary">
         
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/后端">
+                  <b>「 </b>后端<b> 」</b>
+                </a>
+            
+            October 04, 2023
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2023/10/04/Raft%20%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E5%88%86%E6%9E%90%EF%BC%89/" title="Raft 算法实现一个分布式数据库" class="posttitle">Raft 算法实现一个分布式数据库</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        2.5k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        2 mins.
+                    </span>
+                
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <p><strong>构建一个分布式数据库系统是一个复杂的工程，使用 Raft 算法来保证数据的一致性和可用性是一个不错的选择。</strong></p>
+<h1 id="步骤1：定义数据模型和操作"><a href="#步骤1：定义数据模型和操作" class="headerlink" title="步骤1：定义数据模型和操作"></a>步骤1：定义数据模型和操作</h1><p><strong>思路</strong>：首先，需要明确定义一个数据库中的数据模型，包括表、字段、索引等。然后，确定支持的操作，例如插入、更新、删除、查询等。<br><strong>重难点和解决方案</strong></p>
+<ul>
+<li>数据模型设计需要考虑性能和拓展性，需要合理选择数据存储引擎，例如使用关系型数据库、NoSQL 数据库或自定义存储引擎。</li>
+<li>操作的并发性处理可能会导致数据一致性问题。使用分布式事务或乐观并发控制来解决。</li>
+</ul>
+<h1 id="步骤2：设计分布式架构"><a href="#步骤2：设计分布式架构" class="headerlink" title="步骤2：设计分布式架构"></a>步骤2：设计分布式架构...</h1>
+            
+            <span class="read-more"><a href="/2023/10/04/Raft%20%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E5%88%86%E6%9E%90%EF%BC%89/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(https://github.com/brumbyhhh/image-hosting/blob/main/cover/wallhaven-vqeg9m.png?raw=true);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/后端">
+                  <b>「 </b>后端<b> 」</b>
+                </a>
+            
+            September 19, 2023
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2023/09/19/%E4%BB%8E%E9%80%92%E5%BD%92%E5%88%B0%E5%9B%9E%E6%BA%AF/" title="从递归到回溯" class="posttitle">从递归到回溯</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        695
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        1 mins.
+                    </span>
+                
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h1 id="递归详解"><a href="#递归详解" class="headerlink" title="递归详解"></a>递归详解</h1><h2 id="什么是递归"><a href="#什么是递归" class="headerlink" title="什么是递归"></a>什么是递归</h2><ul>
+<li>递归函数就是一个调用自己的函数，通常包括两个部分，<strong>基本情况（递归终止条件）</strong> 和 <strong>递归情况（将问题分解为更小的子问题）</strong></li>
+</ul>
+<h2 id="什么情况下用递归"><a href="#什么情况下用递归" class="headerlink" title="什么情况下用递归"></a>什么情况下用递归</h2><ol>
+<li>问题是否可以被分解为子问题？<ul>
+<li>首先考虑问题是否可以被分解为一个或多个规模较小的且相似的子问题。</li>
+</ul>
+</li>
+<li>是否存在递归终止条件？<ul>
+<li>这是避免无限递归的关键。</li>
+</ul>
+</li>
+<li>问题是否符合递归的结构？<ul>
+<li>有些问题自然的具有递归的结构，如树、图、链表等数据结构。</li>
+</ul>
+</li>
+<li>递归是否能够简化问题？<ul>
+<li>有时递归能使问题更容易解决，可以提供简洁的解决方案。</li>
+</ul>
+</li>
+<li>性能是否可接受？<ul>
+...</ul></li></ol>
+            
+            <span class="read-more"><a href="/2023/09/19/%E4%BB%8E%E9%80%92%E5%BD%92%E5%88%B0%E5%9B%9E%E6%BA%AF/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
 <div class="post" id="post">
     <div class="post-cover animated fadeIn" style="
             background-image:
@@ -548,118 +667,9 @@ pnpm ...</code></pre></li></ul>
 </div>
 
 
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(https://github.com/brumbyhhh/image-hosting/blob/main/cover/wallhaven-yx2lyg.jpg?raw=true);">
-    </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="/categories/后端">
-                  <b>「 </b>后端<b> 」</b>
-                </a>
-            
-            September 08, 2023
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2023/09/08/%E6%95%8F%E6%84%9F%E8%AF%8D%E8%BF%87%E6%BB%A4%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0/" title="敏感词过滤如何实现" class="posttitle">敏感词过滤如何实现</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        6.9k
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        6 mins.
-                    </span>
-                
-                
-            </p>
-            
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <h1 id="实现敏感词过滤的步骤"><a href="#实现敏感词过滤的步骤" class="headerlink" title="实现敏感词过滤的步骤"></a>实现敏感词过滤的步骤</h1><ul>
-<li><strong>构建敏感词汇列表</strong>：首先你需要创建一个敏感词汇的列表或词库，表示不当内容。</li>
-<li><strong>选择过滤方法</strong>:<ul>
-<li><strong>关键词匹配</strong>：使用字符串匹配算法，检查文本中是否包含敏感词汇，这是最简单的方法，但不适用于复杂的敏感词汇。</li>
-<li><strong>正则表达式</strong>：使用正则表达式来匹配敏感词汇，这允许更灵活的匹配模式。</li>
-<li><strong>Tire 树</strong>：构建一个 Trie 树，将敏感词汇插入树中，并通过树的遍历来检查文本。</li>
-<li><strong>机器学习</strong>：使用自然语言 NPL 和机器学习技术训练模型，以检测和过滤不当的内容。</li>
-</ul>
-</li>
-<li><strong>过滤文本</strong>：将要过滤的文本传递给你选择的过滤...</li></ul>
-            
-            <span class="read-more"><a href="/2023/09/08/%E6%95%8F%E6%84%9F%E8%AF%8D%E8%BF%87%E6%BB%A4%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-</div>
-
-
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(https://github.com/brumbyhhh/image-hosting/blob/main/cover/wallhaven-3l2kmd.png?raw=true);">
-    </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="/categories/后端">
-                  <b>「 </b>后端<b> 」</b>
-                </a>
-            
-            September 07, 2023
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2023/09/07/Raft-%E7%AE%97%E6%B3%95/" title="Raft 算法" class="posttitle">Raft 算法</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        4k
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        4 mins.
-                    </span>
-                
-                
-            </p>
-            
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li></ul>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <h1 id="什么是-Raft-算法？"><a href="#什么是-Raft-算法？" class="headerlink" title="什么是 Raft 算法？"></a>什么是 Raft 算法？</h1><ul>
-<li>Raft 算法就是<a href="https://brumbyhhh.github.io/2023/09/15/%E6%B7%B1%E5%85%A5%E5%88%86%E5%B8%83%E5%BC%8F-md/" style="color: #B0D468;">分布式</a>领域的一种共识算法</li>
-</ul>
-<h2 id="什么是共识算法？"><a href="#什么是共识算法？" class="headerlink" title="什么是共识算法？"></a>什么是共识算法？</h2><ul>
-<li>分布式领域的共识算法是用于确保分布式系统中的多个节点能够达成一致的决策或达成共识，在分布式系统中，节点之间可能会因为网络延迟、故障或其他问题而出现不同步的情况，共识算法的目标是协调这些节点以达成一致的状态。</li>
-<li>除了 Raft 算法，还有其他的共识算法，如 <a href="https://brumbyhhh.github.io/2023/09/15/Paxos-%E7%AE%97%E6%B3%95/" style="color: #B0D468">Paxos</a>，<a href="https://brumbyhhh.github.io/2023/09/15/%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90-Zookeeper/" style="color: #B0D468">Zookeeper</a> 的 ZAB 协议等，不同的共识算法具有不同的特性和适用场景。</li>
-</ul>
-<h1 id="Raft-算法的基本原理是什么？"><a href="#Raft-算法的基本原理是什么？" class="headerlink" title="Raft 算法的基本原理是什么？"></a>Raft 算法的基本原理是什么？</h1><ul>
-<li>Raft 算法的核心思想就...</li></ul>
-            
-            <span class="read-more"><a href="/2023/09/07/Raft-%E7%AE%97%E6%B3%95/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-</div>
-
-
     </div>
     
-    <div id="pager"><a href="/page/2/" class="more" data-loading="加载中..." data-load-more="Load more">Load more</a></div>
+    <div id="pager"><a href="/page/2/" class="more" data-loading="Loading..." data-load-more="Load more">Load more</a></div>
     
 </div>
 <div id="preview"></div>
