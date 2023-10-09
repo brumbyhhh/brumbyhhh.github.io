@@ -10,7 +10,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    
+    <meta name="description" content="并发和并行两者有什么区别
+并发：两个或两个以上的任务在一段时间内被执行，这些任务在某一个时间点是否是同时执行，可能同时执行，也可能不是，我们只关心在一段时间内，哪怕是很短的时间是否执行解决了两个或两,"> 
     <meta name="author" content="Painter"> 
     <link rel="alternative" href="atom.xml" title="画师的世界" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -104,7 +105,8 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+                <a href="/categories/后端"><b>「
+                    </b>后端<b> 」</b></a>
                 
                 October 07, 2023
             </p>
@@ -115,13 +117,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    0
+                    4.3k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    4 mins.
                 </span>
                 
                 
@@ -133,6 +135,8 @@
                 
             </p>
             
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/golang/" rel="tag">golang</a></li></ul>
             
         </div>
     </div>
@@ -153,7 +157,77 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            
+            <h1 id="并发和并行两者有什么区别"><a href="#并发和并行两者有什么区别" class="headerlink" title="并发和并行两者有什么区别"></a>并发和并行两者有什么区别</h1><ul>
+<li><strong>并发</strong>：两个或两个以上的任务在一段时间内被执行，这些任务在某一个时间点是否是同时执行，可能同时执行，也可能不是，我们只关心在一段时间内，哪怕是很短的时间是否执行解决了两个或两个以上的任务。</li>
+<li><strong>并行</strong>：两个或两个以上的任务在同一时刻被同时执行。并发“包含”并行。</li>
+</ul>
+<h1 id="Go-的-CSP-并发模型"><a href="#Go-的-CSP-并发模型" class="headerlink" title="Go 的 CSP 并发模型"></a>Go 的 CSP 并发模型</h1><ul>
+<li>并发有两种形式，一种是多线程共享内存来通信，比如在 Java 中的多线程开发。另一种就是 Golang 中的 CSP 并发模型，以通信的方式来共享内存。</li>
+<li>普通的线程并发模型，比如 Java，它们线程之间通信都是通过共享内存的方式来进行的。比如，在访问共享数据（例如数组、Map、或某个对象）的时候，通过锁来访问，所以就衍生除了一种线程安全的数据结构，比如 Java 的 JUC 并发包。Golang 中也实现了传统的线程并发模型，比如 sync 包。</li>
+<li>Golang 的 CSP 并发模型，是通过 goroutine 和 channel 来实现的。<ul>
+<li>goroutine 就是 Golang 中的一个用户态的线程，是 Go 中并发执行单位。</li>
+<li>channel 是 Go 中各个并发结构体 goroutine 之间的通信机制，就是各个 goroutine 之间传递数据的管道。</li>
+</ul>
+</li>
+<li>在通信过程中，传数据和取数据必然会成对出现，因为这边传，那边取，两个 goroutine 之间才会实现通信。而且不管传还是取，这个过程中一定会发生阻塞，直到另一方开始取或传为止。</li>
+</ul>
+<h1 id="Go-并发模型的实现原理"><a href="#Go-并发模型的实现原理" class="headerlink" title="Go 并发模型的实现原理"></a>Go 并发模型的实现原理</h1><ul>
+<li>无论语言层面是何种并发模型，到了操作系统层面，一定是以线程的形态存在的，而操作系统根据资源访问权限的不同，体系架构可分为用户空间和内核空间。<ul>
+<li>内核空间主要操作访问 CPU 资源、I&#x2F;O 资源、内存资源等硬件资源，为上层应用程序提供最基本的基础资源。</li>
+<li>用户空间就是上层应用程序的固定活动空间，用户空间不可以直接访问资源，必须通过“系统调用”、“库函数”或“Shell 脚本”来调用内核空间提供的资源。</li>
+</ul>
+</li>
+<li>我们现在的计算机语言，可以狭义的认为是一种“软件”，它们所谓的“线程”，往往是用户态的线程，和操作系统本身内核态的线程（简称 KSE），还是有区别的。</li>
+<li>线程模型的实现，可以分为以下几种方式：<ul>
+<li><strong>用户级线程模型</strong><ul>
+<li><img src="https://github.com/brumbyhhh/image-hosting/blob/main/content/yonghutai.jpg?raw=true"></li>
+<li>多个用户态的线程对应着一个内核线程，程序线程的创建、终止、切换或者同步等线程工作必须自身来完成。</li>
+</ul>
+</li>
+<li><strong>内核级线程模型</strong><ul>
+<li><img src="https://github.com/brumbyhhh/image-hosting/blob/main/content/neihe.jpg?raw=true"></li>
+<li>这种模型直接调用操作系统的内核线程，所有线程的创建、终止、切换、同步等操作，都由内核来完成。</li>
+</ul>
+</li>
+<li><strong>两级线程模型</strong><ul>
+<li><img src="https://github.com/brumbyhhh/image-hosting/blob/main/content/liangji.jpg?raw=true"></li>
+<li>这种模型的实现非常复杂，和内核级线程模型类似，一个进程中可以对应多个内核级线程，但是进程中的线程不和内核线程一一对应。</li>
+<li>这种线程模型会先创建多个内核级线程，然后用自身的用户级线程去对应创建的多个内核级线程，自身的用户级线程需要本身程序去调度，内核级的线程交给操作系统内核去调度。</li>
+<li>Go 语言的线程模型就是一种特殊的两级线程模型，也就是 GMP 模型。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Go-语言实现-GMP"><a href="#Go-语言实现-GMP" class="headerlink" title="Go 语言实现 GMP"></a>Go 语言实现 GMP</h1><ul>
+<li>G 指的是 Goroutine，本质就是一种轻量级的线程。M 指的是 Machine，一个 M 直接关联了一个内核线程。P 指的是 Processor，代表了 M 所需要的上下文环境，也是处理用户级代码逻辑的处理器。</li>
+<li>三者关系如下图所示：<ul>
+<li><img src="https://github.com/brumbyhhh/image-hosting/blob/main/content/GMPrelation.jpg?raw=true"></li>
+<li>一个 M 会对应一个内核线程，一个 M 也会连接一个上下文，一个上下文 P 相当于一个“处理器”，一个上下文连接一个或者多个 Goroutine。</li>
+<li>P 的数量是在启动时被设置为环境变量 GOMAXPROCS 的值，或者通过运行时调用函数 runtime.GOMAXPROCS() 进行设置。Processor 数量固定就意味着任意时刻只有固定数量的线程在运行 go 代码。</li>
+<li>Goroutine 中就是我们要执行并发的代码，图中 P 正在执行的 Goroutine 为蓝色，处于待执行状态的 Goroutine 为灰色，灰色 Goroutine 形成了一个队列 runqueues。</li>
+</ul>
+</li>
+<li>三者关系的宏观的图：<ul>
+<li><img src="https://github.com/brumbyhhh/image-hosting/blob/main/content/total.jpg?raw=true"></li>
+</ul>
+</li>
+</ul>
+<h2 id="能不能直接不要这个-P-呢？"><a href="#能不能直接不要这个-P-呢？" class="headerlink" title="能不能直接不要这个 P 呢？"></a>能不能直接不要这个 P 呢？</h2><ul>
+<li>首先我们要知道为什么要设计这个 P，设计这个 P 的目的就是在于，当内核线程阻塞的时候，可以直接放开其他的 Goroutine，不会让 Goroutine 跟着阻塞。</li>
+<li>比如在某个时刻，P 调度执行的一个 Goroutine 开始执行一个系统调用，然后阻塞在这里。这个时候，设计 P 的作用就体现出来了，此时这个线程 M 会放弃当前的上下文环境 P，以便让 runqueues 中的其他 Goroutine 可以被调度执行。<ul>
+<li><img src="https://github.com/brumbyhhh/image-hosting/blob/main/content/giveupP.jpg?raw=true"></li>
+<li>左边的图，比如 M0 中的 G0 执行 syscall 于是处于阻塞状态，由于设计了 P，看着右边的图，此时 M0 就会丢弃 P，自己和执行 syscall 的 G0 线程在这儿等待 syscall 的返回值，M1 接受了 P 将继续执行 Groutine 队列中的其他 Goroutine。</li>
+<li>这就是为什么要设计这个 P。当系统调用结束后，M0 会尝试从别的地方获取一个上下文，如果失败，M0 就把它的 G0 放到一个全局的 runqueue 中，然后自己放到线程池或者转入休眠状态。</li>
+<li>全局 runqueue 是各个 P 在运行完自己本地的 Goroutine runqueue 后用来拉去新的 goroutine 的地方。P 也会周期性的检查这个全局 runqueue 上的 goroutine，否则，全局 runqueue 上的 goroutines 可能得不到执行而造成线程饥饿。</li>
+</ul>
+<h3 id="均衡的分配"><a href="#均衡的分配" class="headerlink" title="均衡的分配"></a>均衡的分配</h3><ul>
+<li>由于上下文 P 会定期检查全局的 goroutine 队列中的 goroutine，以便自己在消费自身 Goroutine 队列的时候有事可做，假如全局 goroutine 队列中的 goroutine 也没有了，就会从其他运行的 P 的 requeue 里面偷。</li>
+<li>每个 P 的 goroutine 不同导致它们运行的效率和时间也不同，在一个有很多 P 和 M 的环境中，不能让一个 P 跑完自身的 goroutine 之后就无事可做，因为或许其他 P 有很长的 goroutine 队列要跑，所以需要均衡，如何解决，Go 的做法就是直接从其他 P 中偷一半。</li>
+</ul>
+</li>
+</ul>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
@@ -209,6 +283,13 @@
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E5%92%8C%E5%B9%B6%E8%A1%8C%E4%B8%A4%E8%80%85%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">并发和并行两者有什么区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Go-%E7%9A%84-CSP-%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">Go 的 CSP 并发模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Go-%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">Go 并发模型的实现原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Go-%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0-GMP"><span class="toc-number">4.</span> <span class="toc-text">Go 语言实现 GMP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%BD%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E4%B8%8D%E8%A6%81%E8%BF%99%E4%B8%AA-P-%E5%91%A2%EF%BC%9F"><span class="toc-number">4.1.</span> <span class="toc-text">能不能直接不要这个 P 呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%87%E8%A1%A1%E7%9A%84%E5%88%86%E9%85%8D"><span class="toc-number">4.1.1.</span> <span class="toc-text">均衡的分配</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
             
             
         </div>
